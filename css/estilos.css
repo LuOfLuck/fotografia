@@ -5,18 +5,19 @@
     list-style: none;
     box-sizing: border-box;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-family: sans-serif;
+    height: 200vh;
+    background-color: black;
 }
 
 header{
     width: 100%;
-    height: 100vh;
-    background-image: url(../imagenes/lucasFoto.jpg);
-    background-repeat:none;
-    background-position:center;
-    background-size:cover;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .1);
 }
 
 nav{
@@ -25,6 +26,16 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.home_section{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../imagenes/lucasImg(7).jpg');
+    background-repeat:none;
+    background-position:center;
+    background-size:cover;
+    background-position: 0px 0px;
+    z-index: 12;
 }
 
 .site-logo{
@@ -47,7 +58,7 @@ nav{
     top: 100px;
     background-color: rgba(0, 0, 0, .95);
     text-align: center;
-    transition: all .5s;
+    transition: display .5s;
 }
 
 .nav_menu li{
@@ -64,11 +75,16 @@ nav{
     text-transform: uppercase;
     font-weight: 600;
 }
-
+i{
+    font-size: 1.1em;
+}
 .nav_menu li a.active, .nav_menu li a:hover{
     color: rgb(245, 16, 214);
     transition: .3s;
-
+}
+.nav_menu li:hover{
+    transition: .5s;
+    transform: scale(1.2) !important;
 }
 
 #check{
@@ -114,5 +130,8 @@ nav{
 
     .nav_menu li a{
         font-size: 16px;
+    }
+    .home_section{
+        background-position: 0px -350px;
     }
 }
