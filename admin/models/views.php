@@ -45,7 +45,6 @@
                 } 
             } 
         }else if((isset($_GET['CSRFToken']))){
-             echo "acaget";
             if($security->valToken($_GET['CSRFToken'])){
                 if(isset($_GET["logout"])){
                     $_SESSION["active"] = false;
