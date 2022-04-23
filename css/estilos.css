@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration:none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../imagenes/lucasFoto.jpg);
+    background-repeat:none;
+    background-position:center;
+    background-size:cover;
+}
+
+nav{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo{
+    width:140px ;
+    margin-left: 20px;
+    
+}
+
+.bar-btn{
+    font-size: 25px;
+    color: #fff;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.nav_menu{
+    position: fixed;
+    width: 100%;
+    height: 0vh;
+    top: 100px;
+    background-color: rgba(0, 0, 0, .95);
+    text-align: center;
+    transition: all .5s;
+}
+
+.nav_menu li{
+    display: none;
+    line-height: 30px;
+    margin: 50px 0;
+    transition: all .05s;
+
+}
+
+.nav_menu li a{
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav_menu li a.active, .nav_menu li a:hover{
+    color: rgb(245, 16, 214);
+    transition: .3s;
+
+}
+
+#check{
+    display: none;
+}
+
+#check:checked ~ .nav_menu{
+    height: 100vh;
+}
+
+#check:checked ~ .nav_menu li{
+    display: block;
+}
+
+/* responsive desktop*/
+
+@media screen and (min-width: 768px) {
+    .site-logo{
+        margin-left: 50px;
+    }
+    
+    nav{
+        height: 100px;
+    }
+    .bar-btn{
+        display: none;
+    }
+    .nav_menu{
+        position: relative;
+        height:100px ;
+        top:0;
+        background-color:transparent;
+        transition: none;
+        text-align: right;
+        margin-right: 50px;
+    }
+    .nav_menu li{
+        display: inline-block;
+        line-height: 100px;
+        margin: 0 20px;
+        transition: none;
+    }
+
+    .nav_menu li a{
+        font-size: 16px;
+    }
+}
