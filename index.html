@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lucas Gabriel PHOTOGRAPHY </title>
+    <link rel="shortcut icon" href="imagenes/logo.png">
+
     <link rel="stylesheet" href="css/estilos.css">
     <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +15,7 @@
     <header class="header">
         <nav class="nav"> 
             <div>
-                <img src="imagenes/logo.png" alt="" class="site-logo">
+                <img src="imagenes/logo.png" alt="" class="site-logo" >
             </div>
             <input type="checkbox" id="check">
             <label for="check" class="bar-btn">
@@ -62,18 +64,67 @@
         </section>
         <section id="albums" class="album_section">
             <div class="carrusel">
-                <div class="containerImagen" ><img src="imagenes/lucasImg (3).jpg" alt="" class="elemento"></div>
-                <div class="containerImagen"><img src="imagenes/img9.jpg" alt="" class="elemento"></div>
+                <div class="containerImagen"> <img name="slider" id="ventana" width="300" height="400" ></div>
                 <div class="containerImagen"><img src="imagenes/lucasImg (1).jpg" alt="" class="elemento"></div>
                 <div class="containerImagen"><img src="imagenes/img4.jpg" alt="" class="elemento"></div>
                 <div class="containerImagen"><img src="imagenes/lucasImg(7).jpg" alt="" class="elemento"></div>
             </div>
         </section>
+ 
         <section id="contact" class="contact_section">
+            <form action="#" class="form_box">
+                <div class="input_box">
+                    <input type="text"name="nombre" placeholder="Nombre">
+                </div>
+                <div class="input_box">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="input_box">
+                    <input type="text" name="asunto" placeholder="Asunto">
+                </div>
+                <div class="input_box">
+                    <input type="text" name="mensaje" placeholder="Mensaje">
+                </div>
+                <div class="button">
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
 
         </section>
     </main>
 </body>
+<script>
+    window.addEventListener('load', function (){
+        console.log('imagenes cargaron');
+
+        var imagenes=[];
+        imagenes[0]='imagenes/img9.jpg';
+        imagenes[1]='imagenes/img4.jpg';
+        imagenes[2]='imagenes/img9.jpg';
+        imagenes[3]='imagenes/img4.jpg';
+
+        var indiceImagenes=0;
+        
+        function  cambiarImagenes(){
+            const carruceImg = document.getElementById("ventana");
+            var ruta = carruceImg.src + imagenes[indiceImagenes];
+            carruceImg.src = ruta;
+            console.log(imagenes[indiceImagenes]);
+            console.log(carruceImg);
+            console.log(carruceImg.src);
+            console.log(window.location.host)
+
+            if(indiceImagenes<3){
+                indiceImagenes++;
+            }else{
+                indiceImagenes=0;
+            }
+
+        }
+        setInterval(cambiarImagenes, 500);
+    
+    });
+</script>
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 <footer>
 
