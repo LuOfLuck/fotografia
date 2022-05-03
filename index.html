@@ -107,12 +107,7 @@
         
         function  cambiarImagenes(){
             const carruceImg = document.getElementById("ventana");
-            var ruta = carruceImg.src + imagenes[indiceImagenes];
-            carruceImg.src = ruta;
-            console.log(imagenes[indiceImagenes]);
-            console.log(carruceImg);
-            console.log(carruceImg.src);
-            console.log(window.location.host)
+            carruceImg.src = imagenes[indiceImagenes];
 
             if(indiceImagenes<3){
                 indiceImagenes++;
