@@ -5,6 +5,7 @@
     list-style: none;
     box-sizing: border-box;
     outline: none;
+    font-family: sans-serif;
 }
 :root{
     --violeta: rgb(245, 16, 214);
@@ -18,7 +19,7 @@ html{
 }
 body{
     font-family: sans-serif;    
-    background-color: var(--violeta-claro);
+    background-color: white;
     /*
     background-color: rgb(220, 220, 220);
     background-color: var(--gris);
@@ -259,6 +260,51 @@ header{
                                     */
 /************************************/
 /*                                  */
+/*              ABOUT          */
+/*                                  */
+/************************************/
+.about_section{
+    width: 100%;
+  
+    padding:78px 0px;
+    background-color: #191919;
+
+}
+.about_section img{
+    height: auto;
+    width: 420px;
+   
+}
+.about-text{
+    width: 550px;
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.about-text h1{
+    color: white;
+    font-size: 50px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.about-text p{
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 28px;
+    margin-bottom: 45px;
+}
+
+
+
+
+/************************************/
+/*                                  */
 /*              CARRUCEL            */
 /*                                  */
 /************************************/
@@ -267,9 +313,9 @@ header{
 
 
 .album_section{
+    padding:78px 0px;
     width: 100%;
     height: 100vh;
-
     position: relative;
 }
 .carrusel{
@@ -287,7 +333,7 @@ header{
 }
  
 .carrusel::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 6px rgba(255, 0, 0, 0);
 }
  
 .carrusel::-webkit-scrollbar-thumb {
@@ -374,7 +420,7 @@ header{
 .arrow:hover{
     cursor: pointer;
     transition: .5s linear;
-    color: white;
+    color: violet;
     transform: scale(1.1);
 }
 .arrow--left{
@@ -485,23 +531,35 @@ header{
     width: 100%;
     height: 100vh;
     transition: .5s linear;
-    padding-top: 10px;
+    padding:78px 0px;
+    background-color:black;
 }
-.contact--focus{
-    background: radial-gradient(var(--gris),var(--violeta));
-}
-.contact--focus > .form_box{
-   
-}
+
 .form_box{
     width: 40%;
     height: auto;
     margin: 60px auto 0;
-    background: var(--violeta);
+    background: transparent;
     text-align: center;
     padding: 35px;
     transition: .2s linear;
+    border: solid 3px rgb(126, 14, 163) ;
+    border-radius: 10px; 
+    box-shadow: 
+        0 0 25px #214482,
+        0 0 50px rgb(255, 0, 204);
 } 
+.form_box:hover{
+    animation: pulsate 5s ease-in-out;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 
+        0 0 25px #214482,
+        0 0 50px rgb(255, 0, 204);
+
+    }
+}
 .from__h1{
     color: white;
     border-bottom: 3px solid white;
@@ -525,8 +583,10 @@ header{
     padding: 5px;
 }
 .form__input:focus{
-    transform: translate(-10px, 5px);
-    box-shadow: 10px -5px white;
+    transform: translate(-5px, 5px);
+    box-shadow: 
+        0 0 15px #214482,
+        0 0 20px rgb(255, 0, 204);
 }
 .form__input--submit{
     width: 30%;
@@ -535,8 +595,7 @@ header{
 
 .form__input--submit:hover{
     cursor: pointer;
-    background-color: white;
-    color: var(--violeta) !important;
     border-radius: 0px;
-    border: 3px solid ;
+    border: 4px solid white ;
+    
 }
