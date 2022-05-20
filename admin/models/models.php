@@ -34,6 +34,87 @@ class TableUser{
         }  
 	}
 }
+class TableAlbum{
+	public $tableName;
+    public $con;
+    function __construct($tableName, $con){
+        $this->tableName = $tableName;
+        $this->con = $con;
+    } 
+    function add($titulo,$descripcion){
+        try{
+        	$Object = new DateTime();  
+			$fecha = $Object->format("Y-m-d");  
+			$sth = $this->con->prepare('
+		        INSERT INTO album (titulo, descripcion, fecha) VALUES ( ? , ? , ? );
+		    ');
+		    $sth->bind_param("sss",$titulo, $descripcion, $fecha);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}  
+	function delete($id){
+		try{  
+			$sth = $this->con->prepare('
+		        DELETE FROM album where id=?;
+		    ');
+		    $sth->bind_param("i",$id);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}
+	function update($titulo, $descripcion, $id){
+		try{
+			$sth = $this->con->prepare('
+		        UPDATE album SET titulo=?, descripcion=? WHERE id=?;
+		    ');
+		    $sth->bind_param("ssi",$titulo,$descripcion,$id);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}
+}
+class TableFotos{
+	public $tableName;
+    public $con;
+    function __construct($tableName, $con){
+        $this->tableName = $tableName;
+        $this->con = $con;
+    } 
+    function add($foto,$descripcion, $album){
+        try{
+        	$Object = new DateTime();  
+			$fecha = $Object->format("Y-m-d h:i:s");
+			$sth = $this->con->prepare('
+		        INSERT INTO fotos (foto, descripcion, fecha, album) VALUES ( ? , ? , ? , ? );
+		    ');
+		    $sth->bind_param("sssi",$foto, $descripcion, $fecha, $album);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}  
+	function delete($id){
+		try{  
+			$sth = $this->con->prepare('
+		        DELETE FROM fotos where id=?;
+		    ');
+		    $sth->bind_param("i",$id);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}
+
+}
 class Conexion{
 	private $host;
 	private $user;
@@ -55,5 +136,7 @@ class Conexion{
 $conexion = new Conexion("localhost:3307", "root", "", "fotografia");
 $con = $conexion->conexBd(); 
 $tableUser = new TableUser("user", $con);
+$tableAlbum = new TableAlbum("album", $con);
+$tableFoto = new TableFotos("fotos", $con);
 
 ?>

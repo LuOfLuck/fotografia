@@ -36,6 +36,35 @@
         header("location: ../index.php");
         exit();
     }
+    function logout(){
+        $_SESSION["active"] = false;
+        header("location: ../index.php");
+        exit();
+    }
+    function createdAlbum(){
+        if(isset($_POST["titulo"]) and isset($_POST["descripcion"])){
+            $titulo = $_POST["titulo"];
+            $descripcion = $_POST["descripcion"];
+            $tituloLen = strlen($titulo);
+            $descripcionLen = strlen($descripcion);
+            if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000) ){
+                global $tableAlbum;
+                /*
+                    tengo sueño aca tiene que retornar un json 
+                    ya que estos son rutas ajax.
+                    no se si deberia hacer un archivo aparte 
+                    teoria se puede usar en el mismo
+                    LUCAS NO TE OLVIDES DE LO QUE 
+                    TENES QUE HACER ACA POR FAVOR 
+                */
+                if($res = $tableAlbum->add($titulo, $descripcion){
+                    echo "album agregado";
+                }else{
+                    echo "album no agregado"
+                }
+            }
+        }
+    }
 
     if($security->violationVal()){
         if(isset($_POST['CSRFToken'])) {
@@ -43,17 +72,16 @@
                 if(isset($_POST["login"])){
                    login();
                 } 
-            } 
-        }else if((isset($_GET['CSRFToken']))){
-            if($security->valToken($_GET['CSRFToken'])){
-                if(isset($_GET["logout"])){
-                    $_SESSION["active"] = false;
-                    header("location: ../index.php");
+                if(isset($_POST["crearAlbum"])){
+                    CreatedAlbum();
                 }
+            } 
+        }else{
+            if(isset($_GET["logout"])){
+                logout();
             }
         }
         $security->violationSum();
-        echo "aca";
     }else{
         $_SESSION["message"]="Formulario no validado: <br> Hemos detectado una actividad sospechosa";
         header("location: ../index.php");
