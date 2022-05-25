@@ -56,12 +56,12 @@
                     teoria se puede usar en el mismo
                     LUCAS NO TE OLVIDES DE LO QUE 
                     TENES QUE HACER ACA POR FAVOR 
-                */
                 if($res = $tableAlbum->add($titulo, $descripcion){
                     echo "album agregado";
                 }else{
-                    echo "album no agregado"
+                    echo "album no agregado";
                 }
+                */
             }
         }
     }

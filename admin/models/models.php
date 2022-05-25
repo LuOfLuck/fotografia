@@ -26,8 +26,7 @@ class TableUser{
 		    ');
 		    $sth->bind_param("ss",$username, $password);
 		    $sth->execute();
-			$sth->bind_result($username, $email);
-			return ($sth->fetch())?array("username"=>$username,"email"=>$email):false;
+			return $sth;
 		}
 		catch (Exception $e){
         	return false;
