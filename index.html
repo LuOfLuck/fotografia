@@ -8,10 +8,18 @@
     <link rel="shortcut icon" href="imagenes/logo.png">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/galeria.css">
     <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="circulo"></div>
+    <!--
+        Ignora esta parte, no vale descomentar
+    <div class="circulo">
+        <div class="circulo__cont">
+            <p>sadsadsadsadsadsadsadsadsadsa</p>
+        </div>
+    </div>
+    -->
     <header class="header">
         <nav class="nav"> 
             <div>
@@ -77,10 +85,8 @@
                 </div>
         </section>
         <section id="albums" class="album_section">
-        <!--
             <div id="arrow-left" class="arrow arrow--left"> < </div>
             <div id="arrow-right" class="arrow arrow--right"> > </div>
-        -->
             <div id="carrusel" class="carrusel">
                 <div class="containerImagen"> 
                     <img src="imagenes/img9.jpg" alt="" class="carrusel__img elemento">
@@ -154,11 +160,66 @@
             </form>
 
         </section>
+
+
+
+
+
+
+        <!-- Model pero para probar y preparar -->
+        <div class="cont">
+            <div class="cont__exit">
+            </div>
+            <div id="modal" class="modal claro">
+                <div class="modal__header">
+                    <h1 class="modal__header__h1">ALBUM DE PRUEBA <span class="modal__header__span">16/03/2022</span></h1>
+                    <p class="modal__header__p"> 
+                        No Quiero usar Lorem porque se ve un toque mas raro,del mismo modo tengo que escribir algo para rellenar ette campo y probar la tipografia asi que bueno, copiaria y pegaria algun txto random pero tampoco esta tan maaaaal escribir lo que sea dea.<br>
+                        Hoy me comi mandarias, son ricas, taban dulce, 80 pe el kilo, nada mal.
+                    </p>
+                </div>
+                <div class="modal__body">
+                    <div class="row">
+                        <!--  HASTA 5 IMG POR COLUMNA -->
+                        <!-- RES: ¡¡¡CLARISIMO SEÑORITA JUANA!!!! -->
+                        <div class="column">
+                            <img class="modal__img" alt="imagen1" src="imagenes/img11.jpg" >
+                            <img class="modal__img" alt="imagen2" src="imagenes/img12.jpg" >
+                            <img class="modal__img" alt="imagen3" src="imagenes/img9.jpg" >
+                            <img class="modal__img" alt="imagen4" src="imagenes/img4.jpg" >
+                            <img class="modal__img" alt="imagen5" src="imagenes/img5.jpg" >
+                        </div>
+                        <div class="column">
+                            <img class="modal__img" alt="imagen1" src="imagenes/img8.jpg" >
+                            <img class="modal__img" alt="imagen2" src="imagenes/img11.jpg" >
+                            <img class="modal__img" alt="imagen3" src="imagenes/img8.jpg" >
+                            <img class="modal__img" alt="imagen4" src="imagenes/img9.jpg" >
+                            <img class="modal__img" alt="imagen5" src="imagenes/img10.jpg" >
+                        </div>
+                        <div class="column">
+                            <img class="modal__img" alt="imagen1" src="imagenes/img11.jpg" >
+                            <img class="modal__img" alt="imagen2" src="imagenes/img12.jpg" >
+                            <img class="modal__img" alt="imagen3" src="imagenes/img5.jpg" >
+                            <img class="modal__img" alt="imagen4" src="imagenes/img9.jpg" >
+                            <img class="modal__img" alt="imagen5" src="imagenes/img5.jpg" >
+                        </div>
+                        <div class="column">
+                            <img class="modal__img" alt="imagen1" src="imagenes/img6.jpg" >
+                            <img class="modal__img" alt="imagen2" src="imagenes/img2.jpg" >
+                            <img class="modal__img" alt="imagen3" src="imagenes/img8.jpg" >
+                            <img class="modal__img" alt="imagen4" src="imagenes/img12.jpg" >
+                            <img class="modal__img" alt="imagen5" src="imagenes/img11.jpg" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </main>
 </body>
 <script src="js/main.js"></script>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-<footer>
-
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script><footer>
 </footer>
 </html>

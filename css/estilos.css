@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -26,11 +27,14 @@ body{
     background-color: var(--gris);
     */
 }
+
+.modal::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 5px;
-  background-color: white;
+  background-color: transparent;
 }
  
+.modal::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: var(--violeta);
 }
@@ -52,18 +56,39 @@ header{
 
 
 .circulo{
-    transition: 10;
+    transition: .3s linear;
+    border-radius: 5px;
     position: fixed;
     width: 50px;
     height: 50px;
-    background-color: red;
-    border-radius: 50%;
+    background-color: green;
     bottom: 50px;
     right: 50px;
-    z-index: 10000;
+    z-index: 45;
+    width: 150px;
+    height: 200px;
 }
 .circulo:hover{
+    border-radius: 5px;
 
+}
+.circulo__cont{
+    background-color:blue;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: '.';
+}
+/*
+.circulo__cont{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+*/
+.circulo:hover .circulo__cont{
+    width: auto;
+    height: auto;
 }
 /************************************/
 /*                                  */
@@ -71,7 +96,7 @@ header{
 /*                                  */
 /************************************/
 .header{
-    z-index: 1000000;
+    z-index: 50;
 }
 .nav{
     height: 100px;
@@ -382,7 +407,7 @@ header{
     border-radius: 20px;
     width: 100%;
     height: 100%;
-    z-index:100;
+    z-index:30;
     background-color: rgba(0, 0, 0, .5);
     transition: .5s;
     display: flex;
@@ -432,7 +457,7 @@ header{
     font-size: 4em;
     position: absolute;
     top: 45%;
-    z-index: 1000000;
+    z-index: 40;
     user-select: none; 
 }
 .arrow:hover{
@@ -537,12 +562,7 @@ header{
                                     */
 /************************************/
 /*                                  */
-/*            FIN PROCESO           */
-/*                                  */
-/************************************/
-/************************************/
-/*                                  */
-/*        SECTION CONTACT       */
+/*        SECTION CONTACT           */
 /*                                  */
 /************************************/
 .contact_section{
@@ -617,3 +637,103 @@ header{
     border: 4px solid white ;
     
 }
+
+
+/************************************/
+/*                                  */
+/*     FIN SECTION CONTACT          */
+/*                                  */
+/************************************/
+/* 
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/*                                  
+                                    */
+/************************************/
+/*                                  */
+/*           MODAL STYLE            */
+/*                                  */
+/************************************/
+
+
+.cont{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+}
+.modal{
+    width: 90%;
+    max-height:95%;
+    padding: 20px 0px;
+    overflow-y: auto;
+    background-color: rgba(220, 220, 220, .2);
+    font-size: 16px;
+}
+.modal__header{
+    width: 80%;
+    padding: 25px 20px;
+    margin: 10px 50px;
+    background-color: rgba(245, 245, 245, 1.0);
+}
+.modal__header__h1,
+.modal__header__span,
+.modal__header__p{
+    font-family: 'Roboto', sans-serif;
+}
+.modal__header__h1{
+    color:  rgba(80, 80, 80, 1.0);
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(160, 160, 160, 1.0);
+}
+
+.modal__header__span{
+    font-size: .45em;
+    margin-left: 5px;
+    font-weight: 400;
+    color:  rgba(150, 150, 150, 1.0);;
+}
+.modal__header__p{
+    color:  rgba(100, 100, 100, 1.0);;
+}
+.modal__body{
+    background-color: transparent;
+
+    min-height: 1000px;
+    margin: 20px 15px;
+}
+.modal__img{
+    transition: 1s ease;
+    position: relative;
+    bottom: -150px;
+    opacity: 0;
+}
+.active{
+    opacity: 100%;
+    transform:translateY(-150px);
+}
+
+/************************************/
+/*                                  */
+/*            FIN PROCESO           */
+/*                                  */
+/************************************/

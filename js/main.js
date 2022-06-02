@@ -1,6 +1,6 @@
-
 const carruceImg = document.querySelectorAll(".elemento");
-
+const modal = document.getElementById("modal");
+const modalImgs = document.querySelectorAll(".modal__img");
 const MovCarrucel = ()=>{
     const carrusel = document.getElementById("carrusel");
     const arrowLeft = document.getElementById("arrow-left");
@@ -64,3 +64,20 @@ document.addEventListener("click", (e)=>{
         contact.classList.remove("contact--focus")
     }
 });
+
+
+
+
+modal.addEventListener("scroll", ()=>{
+    let bloqueDentro = document.querySelectorAll('.modal__img');
+    for (let i = 0; i < bloqueDentro.length; i++){
+        let heightPantalla = window.innerHeight;
+        let bloqueDentroTop = bloqueDentro[i].getBoundingClientRect().top;
+        let mostrar = 200;
+        if(bloqueDentroTop < heightPantalla - mostrar){
+            bloqueDentro[i].classList.add('active');
+        }else{
+            bloqueDentro[i].classList.remove('active');
+        }
+    }
+})

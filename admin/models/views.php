@@ -47,7 +47,7 @@
             $descripcion = $_POST["descripcion"];
             $tituloLen = strlen($titulo);
             $descripcionLen = strlen($descripcion);
-            if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000) ){
+            if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000)){
                 global $tableAlbum;
                 /*
                     tengo sueño aca tiene que retornar un json 
@@ -56,14 +56,26 @@
                     teoria se puede usar en el mismo
                     LUCAS NO TE OLVIDES DE LO QUE 
                     TENES QUE HACER ACA POR FAVOR 
+                */
                 if($res = $tableAlbum->add($titulo, $descripcion){
                     echo "album agregado";
                 }else{
                     echo "album no agregado";
                 }
-                */
             }
         }
+    }
+    function addImg(){
+        $img = $_FILES["img"];
+        $descripcion = $_POST["descripcion"];
+        $album_id = $_POST['album_id'];
+        $res = $tableFoto->add($img, $descripcion, $album_id);
+        if($res){
+            echo "foto agregada";
+        }else{
+            $_SESSION["message"] = "La imagen no se pudo agregar";
+        }
+
     }
 
     if($security->violationVal()){
@@ -74,6 +86,9 @@
                 } 
                 if(isset($_POST["crearAlbum"])){
                     CreatedAlbum();
+                }
+                if(isset($_POST['addImg'])){
+                    addImg();
                 }
             } 
         }else{

@@ -88,14 +88,32 @@ class TableFotos{
     } 
     function add($foto,$descripcion, $album){
         try{
-        	$Object = new DateTime();  
-			$fecha = $Object->format("Y-m-d h:i:s");
-			$sth = $this->con->prepare('
-		        INSERT INTO fotos (foto, descripcion, fecha, album) VALUES ( ? , ? , ? , ? );
-		    ');
-		    $sth->bind_param("sssi",$foto, $descripcion, $fecha, $album);
-		    $sth->execute();
-		    return true;
+        	$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+			$limite_kb = 6384; //6 MB . algo
+		 	if (isset($foto)){
+		  	    if (in_array($foto['type'], $permitidos) && $foto['size'] <= $limite_kb * 1024){
+		  	    	$nombreImg = $foto['name'];
+		    		$ruta = $foto['tmp_name'];
+		    		$directorio = "img/";
+		    		$destino = $directorio . $nombreImg;
+		    		$random = rand(0, 1000);
+		    		if(!file_exists($destino )){
+						if(move_uploaded_file($ruta, "img/" . $random . $nombreImg)){
+							$dir =  $random . $nombreImg;
+							$Object = new DateTime();  
+							$fecha = $Object->format("Y-m-d h:i:s");
+							$sth = $this->con->prepare('
+						        INSERT INTO fotos (foto, descripcion, fecha, album) VALUES ( ? , ? , ? , ? );
+						    ');
+						    $sth->bind_param("sssi",$dir, $descripcion, $fecha, $album);
+						    $sth->execute();
+						    return true;
+						}
+					}
+		  	    }
+		 	}
+
+        	
         }catch (Exception $e){
         	return false;
         }
