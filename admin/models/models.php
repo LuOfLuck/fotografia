@@ -78,6 +78,22 @@ class TableAlbum{
         	return false;
         }
 	}
+	function getAll(){
+		try{
+			//aca la verdad el 0 = ? (num = 0) es para que obtenga todo porque tengo paja de testear
+		    $sth = $this->con->prepare('
+		       SELECT id, titulo, descripcion, fecha FROM fotos WHERE 0 = ? 
+		    ');
+		    $num = 0;
+		    $sth->bind_param("i",$num);
+		    $sth->execute();
+			return $sth;
+		}
+		catch (Exception $e){
+        	return false;
+        }  
+	}
+		
 }
 class TableFotos{
 	public $tableName;
@@ -130,7 +146,44 @@ class TableFotos{
         	return false;
         }
 	}
-
+	function update($descripcion, $id){
+		try{
+			$sth = $this->con->prepare('
+		        UPDATE fotos SET descripcion=? WHERE id=?;
+		    ');
+		    $sth->bind_param("si",$descripcion,$id);
+		    $sth->execute();
+		    return true;
+        }catch (Exception $e){
+        	return false;
+        }
+	}
+	function getOne($id){
+		try{
+		    $sth = $this->con->prepare('
+		       SELECT foto, album FROM fotos WHERE id = ?
+		    ');
+		    $sth->bind_param("i",$id);
+		    $sth->execute();
+			return $sth;
+		}
+		catch (Exception $e){
+        	return false;
+        }  
+	}
+	function getAccordingTo($idAlbum){
+		try{
+		    $sth = $this->con->prepare('
+		       SELECT id, foto, fecha FROM fotos WHERE album = ? 
+		    ');
+		    $sth->bind_param("ss",$username, $password);
+		    $sth->execute();
+			return $sth;
+		}
+		catch (Exception $e){
+        	return false;
+        }  
+	}
 }
 class Conexion{
 	private $host;

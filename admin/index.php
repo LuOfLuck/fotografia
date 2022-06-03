@@ -16,7 +16,7 @@
 	<div id="app">
 		<div class="content">
 			<h1 class="content__h1">INICIAR SESION</h1>
-			<form action="models/views.php" method="POST" class="form">
+			<form action="models/urls.php" method="POST" class="form">
 				<input type="hidden" name="CSRFToken" value="<?php echo $_SESSION['CSRFToken']; ?>">
 				<input type="hidden" name="login" value="true">
 				<p class="form__p">
