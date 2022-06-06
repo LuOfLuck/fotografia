@@ -581,23 +581,12 @@ header{
     text-align: center;
     padding: 35px;
     transition: .2s linear;
-    border: solid 3px rgb(126, 14, 163) ;
+    border: solid 2px rgb(200, 14, 163) ;
     border-radius: 10px; 
     box-shadow: 
-        0 0 25px #214482,
+        0 0 25px #3d2182,
         0 0 50px rgb(255, 0, 204);
 } 
-.form_box:hover{
-    animation: pulsate 5s ease-in-out;
-}
-@keyframes pulsate{
-    0%{
-        box-shadow: 
-        0 0 25px #214482,
-        0 0 50px rgb(255, 0, 204);
-
-    }
-}
 .from__h1{
     color: white;
     border-bottom: 3px solid white;
@@ -616,15 +605,27 @@ header{
     border-radius: 15px;
     color: white !important;
 }
-.form__input::placeholder{
+.form__input--textarea{
+    width: 80%;
+    height: 100px;
+    padding: 5px 10px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    background: transparent;
+    color: var(--violeta) !important;
+    transition: .5s linear;
+    border-radius: 15px;
+    color: white !important;
+}
+.form__input::placeholder, .form__input--textarea::placeholder{
     color: white;
     padding: 5px;
 }
-.form__input:focus{
+.form__input:focus, .form__input--textarea:focus{
     transform: translate(-5px, 5px);
     box-shadow: 
-        0 0 15px #214482,
-        0 0 20px rgb(255, 0, 204);
+        0 0 5px white,
+        0 0 5px white;
 }
 .form__input--submit{
     width: 30%;
@@ -673,7 +674,7 @@ header{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, .6);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;

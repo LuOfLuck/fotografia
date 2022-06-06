@@ -140,25 +140,27 @@
         </section>
 
         <section id="contact" class="contact contact_section contact--focus">
-            <form id="id_form" class="form_box">
+            <form id="id_form" class="form_box" method="POST">
                 <h1 class="from__h1">Contactame</h1>
                 <div class="input_box">
                     <input type="text" class="form__input" name="nombre" placeholder="Nombre">
                 </div>
                 <div class="input_box">
-                    <input type="email"  class="form__input" name="email" placeholder="Email">
+                    <input type="email"  class="form__input" name="correo" placeholder="Email">
                 </div>
                 <div class="input_box">
                     <input type="text"  class="form__input" name="asunto" placeholder="Asunto">
                 </div>
                 <div class="input_box">
-                    <textarea  class="form__input form__input--textarea" name="mensaje" placeholder="Mensaje"></textarea>
+                    <textarea  class="form__input--textarea" name="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
                 </div>
                 <div class="button">
                     <input type="submit" class="form__input form__input--submit" value="Enviar">
                 </div>
             </form>
-
+        <?php
+        include("correo.php");
+        ?>
         </section>
 
 
