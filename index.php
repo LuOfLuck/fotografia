@@ -140,8 +140,8 @@
         </section>
 
         <section id="contact" class="contact contact_section contact--focus">
-            <form id="id_form" class="form_box" method="POST">
-                <h1 class="from__h1">Contactame</h1>
+            <form id="id_form" class="form_box" method="POST" action="correo.php">
+                <h1 class="from__h1">Contactame hola</h1>
                 <div class="input_box">
                     <input type="text" class="form__input" name="nombre" placeholder="Nombre">
                 </div>
