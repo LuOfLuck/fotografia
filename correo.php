@@ -1,8 +1,7 @@
 <?php
-if(isset($_POST['enviar'])){
-    if(!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['asunto']) && !empty($_POST['mensaje']) )
+if(!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['asunto']) && !empty($_POST['mensaje']) ){
     $nombre=_POST['nombre'];
-    $corre=_POST['correo'];
+    $correo=_POST['correo'];
     $asunto=_POST['asunto'];
     $mensaje=_POST['mensaje'];
     $from=$email;
@@ -16,7 +15,5 @@ if(isset($_POST['enviar'])){
     }else{
         echo 0;
     }
-}else{
-    echo 0;
 }
 ?>
