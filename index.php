@@ -44,7 +44,7 @@
                     <a href="#contact" class="nav_menu__li__a">Contact</a>
                 </li>
                 <li class="nav_menu__li">
-                    <a href="#" class="nav_menu__li__a">
+                    <a href="https://www.facebook.com/profile.php?id=100081935944987" class="nav_menu__li__a">
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
                     </a>
                 </li>
@@ -141,7 +141,7 @@
 
         <section id="contact" class="contact contact_section contact--focus">
             <form id="id_form" class="form_box" method="POST" action="correo.php">
-                <h1 class="from__h1">Contactame hola</h1>
+                <h1 class="from__h1">Contactame gato</h1>
                 <div class="input_box">
                     <input type="text" class="form__input" name="nombre" placeholder="Nombre">
                 </div>
