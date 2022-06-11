@@ -64,8 +64,8 @@
     <main>
         <section id="home" class="home_section">
             <div class="logo">
-                <img src="imagenes/logo.png" class="logo__img" alt="Banner - Lucas Gabriel">  
-                <div class="logo__p">
+                <img src="imagenes/logo.png" class="logo__img animation--bottom" alt="Banner - Lucas Gabriel">  
+                <div class="logo__p animation--bottom">
                     <p class="logo__p--name">LUCAS</p>
                     <p class="logo__p--name">GABRIEL</p>
                     <p class="logo__p--ofice">PHOTOGRAPHY</p>
@@ -73,21 +73,25 @@
             </div>
         </section>
         <section id="about" class="about_section">
-        <div class="contenedor"></div>   
-        <p class="texto-encima">jjahsshhjasjsjsjajsjsajnhsjnsjnsjnsjsjs
-                sjjjsjsjjsjsjjssjsjsjsjsaj
-                sauhsuahduhuisdhusahudjhuias
-                asyusdauhgsdyuhsusaIADSOISJDAIKOJSIJIOJ
-            </p> 
-            <img src="imagenes/imagenAbout3.JPG" alt="aboutImagen">
-            
-        </div>
+            <div class="main">
+                <img src="imagenes/imagenAbout1.jpg" class="animation--bottom" alt="">
+                <div class="about-text animation--bottom">
+                    <h1>¿QUIEN SOY?</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Sint sapiente mollitia facere doloremque, provident aut 
+                        accusamus nesciunt est eos nam vero error numquam dolores
+                        reiciendis tempore suscipit voluptatum cupiditate a.
+                    </p>
+                </div>
+            </div>
         </section>
         <section id="albums" class="album_section">
+            <h1 class="animation--bottom">ALBUMS</h1>
             <div id="arrow-left" class="arrow arrow--left"> < </div>
             <div id="arrow-right" class="arrow arrow--right"> > </div>
             <div id="carrusel" class="carrusel">
-                <div class="containerImagen"> 
+                <div class="containerImagen "> 
                     <img src="imagenes/img9.jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -95,7 +99,7 @@
                         <button class="img__description__button">exit</button>
                     </div>
                 </div>
-                <div class="containerImagen">
+                <div class="containerImagen ">
                     <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -103,7 +107,7 @@
                         <button class="img__description__button">exit</button>
                     </div>
                 </div>
-                <div class="containerImagen">
+                <div class="containerImagen ">
                     <img src="imagenes/img4.jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -111,7 +115,7 @@
                         <button class="img__description__button">exit</button>
                     </div>
                 </div>
-                <div class="containerImagen">
+                <div class="containerImagen ">
                     <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -119,7 +123,7 @@
                         <button class="img__description__button">exit</button>
                     </div>
                 </div>  
-                <div class="containerImagen">
+                <div class="containerImagen ">
                     <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -127,7 +131,7 @@
                         <button class="img__description__button">exit</button>
                     </div>
                 </div>  
-                <div class="containerImagen">
+                <div class="containerImagen ">
                     <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
                     <div class="carrusel__img__description">
                         <h3 class="img__description__h3">titulo</h3>
@@ -141,16 +145,16 @@
         <section id="contact" class="contact contact_section contact--focus">
             <form id="id_form" class="form_box" method="POST" action="correo.php">
                 <h1 class="from__h1">Contactame</h1>
-                <div class="input_box">
+                <div class="input_box animation--bottom">
                     <input type="text" class="form__input" name="nombre" placeholder="Nombre">
                 </div>
-                <div class="input_box">
+                <div class="input_box animation--bottom">
                     <input type="email"  class="form__input" name="correo" placeholder="Email">
                 </div>
-                <div class="input_box">
+                <div class="input_box animation--bottom">
                     <input type="text"  class="form__input" name="asunto" placeholder="Asunto">
                 </div>
-                <div class="input_box">
+                <div class="input_box animation--bottom">
                     <textarea  class="form__input--textarea" name="mensaje" placeholder="Mensaje" maxlength="200"></textarea>
                 </div>
                 <div class="button">
@@ -219,6 +223,7 @@
     </main>
 </body>
 <script src="js/main.js"></script>
+<script src="js/animation.js"></script>
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script><footer>
 </footer>
 </html>

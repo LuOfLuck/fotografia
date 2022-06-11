@@ -24,14 +24,19 @@ var indiceImagenes=0;
 carruceImg.forEach((e)=>{
     e.addEventListener('mouseover', function (){
         function cambiarImagenes(){
-            e.src = imagenes[indiceImagenes];
-            if(indiceImagenes<3){
-                indiceImagenes++;
-            }else{
-                indiceImagenes=0;
-            }
+            e.classList.add("img--uptadate")
+            setTimeout(()=>{
+                e.src = imagenes[indiceImagenes];
+                if(indiceImagenes<3){
+                    indiceImagenes++;
+                }else{
+                    indiceImagenes=0;
+                }
+                e.classList.remove("img--uptadate");
+            }, 500);
+
         }
-        const cambiarImg = setInterval(cambiarImagenes, 500);
+        const cambiarImg = setInterval(cambiarImagenes, 2000);
         e.addEventListener("mouseout", ()=>{
                 clearInterval(cambiarImg);
         })
@@ -69,11 +74,11 @@ document.addEventListener("click", (e)=>{
 
 
 modal.addEventListener("scroll", ()=>{
-    let bloqueDentro = document.querySelectorAll('.modal__img');
+    let bloqueDentro = document.querySelectorAll('.animation--bottom');
     for (let i = 0; i < bloqueDentro.length; i++){
         let heightPantalla = window.innerHeight;
         let bloqueDentroTop = bloqueDentro[i].getBoundingClientRect().top;
-        let mostrar = 200;
+        let mostrar = 100;
         if(bloqueDentroTop < heightPantalla - mostrar){
             bloqueDentro[i].classList.add('active');
         }else{
