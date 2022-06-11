@@ -44,7 +44,7 @@
                     <a href="#contact" class="nav_menu__li__a">Contact</a>
                 </li>
                 <li class="nav_menu__li">
-                    <a href="#" class="nav_menu__li__a">
+                    <a href="https://www.facebook.com/profile.php?id=100081935944987" class="nav_menu__li__a">
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
                     </a>
                 </li>
@@ -73,16 +73,15 @@
             </div>
         </section>
         <section id="about" class="about_section">
-            <div class="main">
-                <img src="imagenes/img5.jpg" alt="">
-                <div class="about-text">
-                    <h1>QUIEN SOY?</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Sint sapiente mollitia facere doloremque, provident aut 
-                            accusamus nesciunt est eos nam vero error numquam dolores
-                            reiciendis tempore suscipit voluptatum cupiditate a.</p>
-                    </div>
-                </div>
+        <div class="contenedor"></div>   
+        <p class="texto-encima">jjahsshhjasjsjsjajsjsajnhsjnsjnsjnsjsjs
+                sjjjsjsjjsjsjjssjsjsjsjsaj
+                sauhsuahduhuisdhusahudjhuias
+                asyusdauhgsdyuhsusaIADSOISJDAIKOJSIJIOJ
+            </p> 
+            <img src="imagenes/imagenAbout3.JPG" alt="aboutImagen">
+            
+        </div>
         </section>
         <section id="albums" class="album_section">
             <div id="arrow-left" class="arrow arrow--left"> < </div>
@@ -140,7 +139,7 @@
         </section>
 
         <section id="contact" class="contact contact_section contact--focus">
-            <form id="id_form" class="form_box" method="POST">
+            <form id="id_form" class="form_box" method="POST" action="correo.php">
                 <h1 class="from__h1">Contactame</h1>
                 <div class="input_box">
                     <input type="text" class="form__input" name="nombre" placeholder="Nombre">

@@ -144,6 +144,7 @@ header{
     transform: scale(1.2) !important;
 }
 .site-logo{
+    display: none;
     width:75px;
     margin-left: 20px;   
 }
@@ -308,43 +309,26 @@ header{
 /************************************/
 .about_section{
     width: 100%;
-  
-    padding:78px 0px;
+    height:auto;
+    padding:0px;
     background-color: #191919;
 
 }
-.about_section img{
-    height: auto;
-    width: 420px;
-   
+.contenedor{
+        display: flex;
+        position: relative;		
+        width:100%;
 }
-.about-text{
-    width: 550px;
-}
-.main{
-    width: 1130px;
-    max-width: 95%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.about-text h1{
-    color: white;
-    font-size: 50px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-}
-.about-text p{
-    color: white;
-    font-size: 20px;
-    letter-spacing: 1px;
-    line-height: 28px;
-    margin-bottom: 45px;
-}
-
-
-
+.texto-encima{
+    background-color:red;
+    display: block;
+    position:initial;
+    bottom: 16px;
+    left: 0;
+    padding: 5px;
+    width: 50%;
+    height: 50%;
+  }
 
 /************************************/
 /*                                  */
@@ -504,6 +488,7 @@ header{
 /************************************/
 @media screen and (min-width: 768px) {
     .site-logo{
+        display: block;
         margin-left: 50px;
     }
     
@@ -565,6 +550,101 @@ header{
 /*        SECTION CONTACT           */
 /*                                  */
 /************************************/
+.contact_section{
+    width: 100%;
+    height: 100vh;
+    transition: .5s linear;
+    padding:78px 0px;
+    background-color:black;
+}
+
+.form_box{
+    width: 90%;
+    height: auto;
+    margin: 60px auto 0;
+    background: transparent;
+    text-align: center;
+    padding: 18px;
+    transition: .2s linear;
+    border: solid 2px rgb(200, 14, 163) ;
+    border-radius: 10px; 
+    box-shadow: 
+        0 0 25px #3d2182,
+        0 0 50px rgb(255, 0, 204);
+} 
+.from__h1{
+    color: white;
+    border-bottom: 3px solid white;
+    padding: 5px 80px;
+    margin-bottom: 25px;
+}
+.form__input{
+    width: 90%;
+    height: 40px;
+    padding: 3px 6px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    background: transparent;
+    color: var(--violeta) !important;
+    transition: .5s linear;
+    border-radius: 15px;
+    color: white !important;
+}
+.form__input--textarea{
+    width: 90%;
+    height: 100px;
+    padding: 3px 6px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    background: transparent;
+    color: var(--violeta) !important;
+    transition: .5s linear;
+    border-radius: 15px;
+    color: white !important;
+}
+.form__input::placeholder, .form__input--textarea::placeholder{
+    color: white;
+    padding: 5px;
+}
+.form__input:focus, .form__input--textarea:focus{
+    transform: translate(-5px, 5px);
+    box-shadow: 
+        0 0 5px white,
+        0 0 5px white;
+}
+.form__input--submit{
+    width: 30%;
+    font-weight: 800;
+}
+
+.form__input--submit:hover{
+    cursor: pointer;
+    border-radius: 0px;
+    border: 4px solid white ;
+    
+}
+@media screen and (min-width: 768px) {
+    .form_box{
+        width: 50%;
+        height:auto;
+        margin: 60px auto 0;
+    }
+    .form__input{
+        width: 80%;
+        height: 50px;
+        padding: 5px 10px;
+    }
+    .form__input--textarea{
+        width: 80%;
+        height: 120px;
+        padding: 5px 10px;
+    }
+    .form__input--submit{
+        width: 30%;
+        font-weight: 800;
+    }
+    }
+/*
 .contact_section{
     width: 100%;
     height: 100vh;
@@ -636,7 +716,7 @@ header{
     border: 4px solid white ;
     
 }
-
+*/
 
 /************************************/
 /*                                  */
