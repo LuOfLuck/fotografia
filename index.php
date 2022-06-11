@@ -158,9 +158,7 @@
                     <input type="submit" class="form__input form__input--submit" value="Enviar">
                 </div>
             </form>
-        <?php
-        include("correo.php");
-        ?>
+
         </section>
 
 

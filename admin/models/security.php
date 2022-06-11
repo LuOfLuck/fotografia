@@ -47,5 +47,4 @@ class Security{
 	}   
 }
 $security = new Security();
-
 ?>

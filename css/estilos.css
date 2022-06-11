@@ -581,11 +581,8 @@ header{
     text-align: center;
     padding: 35px;
     transition: .2s linear;
-    border: solid 2px rgb(200, 14, 163) ;
+    border: solid 2px white;
     border-radius: 10px; 
-    box-shadow: 
-        0 0 25px #3d2182,
-        0 0 50px rgb(255, 0, 204);
 } 
 .from__h1{
     color: white;
@@ -613,16 +610,17 @@ header{
     margin-bottom: 20px;
     background: transparent;
     color: var(--violeta) !important;
-    transition: .5s linear;
+    transition: .1s linear;
     border-radius: 15px;
     color: white !important;
 }
 .form__input::placeholder, .form__input--textarea::placeholder{
-    color: white;
+    font-size: .8em;
+    color: rgba(230, 230, 230, 1.0);
     padding: 5px;
 }
 .form__input:focus, .form__input--textarea:focus{
-    transform: translate(-5px, 5px);
+    transform: translate(-2px, 2px);
     box-shadow: 
         0 0 5px white,
         0 0 5px white;

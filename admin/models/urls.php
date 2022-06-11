@@ -42,7 +42,6 @@
         header("location: ../index.php");
         exit();
     }
-
     /* TABLA ALBUM */
     function createdAlbum(){
         $jsonData = array();
@@ -135,8 +134,6 @@
         echo $jsonData;
         exit(); 
     }
-
-
     /* TABLA IMG*/
     }
     function addImg(){
@@ -222,8 +219,6 @@
             }
         }
     }
-
-
     /* URL */
     if($security->violationVal()){
         if(isset($_POST['CSRFToken'])) {
@@ -261,13 +256,4 @@
         header("location: ../index.php");
         exit();
     }
-    
-    
-
-
-    /*
-    ainaudi: experience
-    $res= $tableUser->addUser("Lucas123", "lucas@mail.com", "12345678");
-    echo ($res)?"usuario creado":"usuario no creado";
-    */
 ?>
