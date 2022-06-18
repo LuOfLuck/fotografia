@@ -1,3 +1,14 @@
+<?php
+    include("admin/models/security.php");
+    include("admin/models/models.php");
+    $_SESSION['CSRFToken'] = $security->creartedToken();
+    $token = $_SESSION['CSRFToken'];
+    $arrayAlbum = $tableAlbum->getAll();
+    if(!isset($_SESSION['active'])){
+        $_SESSION['active'] = false;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +20,11 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/galeria.css">
-    <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9ec8210292.js" crossorigin="anonymous"></script>                                                              
 </head>
 <body>
+
+
     <!--
         Ignora esta parte, no vale descomentar
     <div class="circulo">
@@ -89,56 +102,34 @@
         <section id="albums" class="album_section">
             <h1 class="animation--bottom">ALBUMS</h1>
             <div id="arrow-left" class="arrow arrow--left"> < </div>
+                        <i class="fa-solid fa-plus"></i> 
             <div id="arrow-right" class="arrow arrow--right"> > </div>
             <div id="carrusel" class="carrusel">
-                <div class="containerImagen "> 
-                    <img src="imagenes/img9.jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
+                <?php 
+                if($_SESSION["active"]){ ?>
+                <div id="add__album" class="containerImagen containerImagen--add">
+                    <div  class="containerImagen__icon">
+                        <i class="fa-solid fa-plus"></i> 
+
                     </div>
                 </div>
-                <div class="containerImagen ">
-                    <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
-                    </div>
-                </div>
-                <div class="containerImagen ">
-                    <img src="imagenes/img4.jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
-                    </div>
-                </div>
-                <div class="containerImagen ">
-                    <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
-                    </div>
-                </div>  
-                <div class="containerImagen ">
-                    <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
-                    </div>
-                </div>  
-                <div class="containerImagen ">
-                    <img src="imagenes/lucasImg(7).jpg" alt="" class="carrusel__img elemento">
-                    <div class="carrusel__img__description">
-                        <h3 class="img__description__h3">titulo</h3>
-                        <p class="img__description__p">descricpion de lo que tendria que ver en pocas palabras porque si son muchas...</p>
-                        <button class="img__description__button">exit</button>
-                    </div>
-                </div>
+                <?php 
+                    }
+                   foreach ($arrayAlbum as &$album) {
+                        $arrayFoto = $tableFoto->getForAlbum($album["id"]);                ?>
+                        <div class="containerImagen ">
+                            <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
+                            <div class="carrusel__img__description">
+                                <h3 class="img__description__h3"><?php echo $album["titulo"]; ?></h3>
+                                <p class="img__description__p"><?php echo $album["descripcion"]; ?></p>
+                                <button 
+                                    onclick='modalImg(<?php echo json_encode($album);?>,<?php echo json_encode($arrayFoto);?>,"<?php echo $token;?>", <?php echo $_SESSION['active'];?>)'
+                                    class="img__description__button">ver</button>
+                            </div>
+                        </div>
+                <?php
+                    }
+                ?>
             </div>
         </section>
 
@@ -170,55 +161,16 @@
 
 
         <!-- Model pero para probar y preparar -->
-        <div class="cont">
-            <div class="cont__exit">
+        <div id="cont" class="cont">
+            <div id="cont__exit" class="cont__exit">
+                <i class="fa-solid fa-x"></i>
             </div>
             <div id="modal" class="modal claro">
-                <div class="modal__header">
-                    <h1 class="modal__header__h1">ALBUM DE PRUEBA <span class="modal__header__span">16/03/2022</span></h1>
-                    <p class="modal__header__p"> 
-                        No Quiero usar Lorem porque se ve un toque mas raro,del mismo modo tengo que escribir algo para rellenar ette campo y probar la tipografia asi que bueno, copiaria y pegaria algun txto random pero tampoco esta tan maaaaal escribir lo que sea dea.<br>
-                        Hoy me comi mandarias, son ricas, taban dulce, 80 pe el kilo, nada mal.
-                    </p>
-                </div>
-                <div class="modal__body">
-                    <div class="row">
-                        <!--  HASTA 5 IMG POR COLUMNA -->
-                        <!-- RES: ¡¡¡CLARISIMO SEÑORITA JUANA!!!! -->
-                        <div class="column">
-                            <img class="modal__img" alt="imagen1" src="imagenes/img11.jpg" >
-                            <img class="modal__img" alt="imagen2" src="imagenes/img12.jpg" >
-                            <img class="modal__img" alt="imagen3" src="imagenes/img9.jpg" >
-                            <img class="modal__img" alt="imagen4" src="imagenes/img4.jpg" >
-                            <img class="modal__img" alt="imagen5" src="imagenes/img5.jpg" >
-                        </div>
-                        <div class="column">
-                            <img class="modal__img" alt="imagen1" src="imagenes/img8.jpg" >
-                            <img class="modal__img" alt="imagen2" src="imagenes/img11.jpg" >
-                            <img class="modal__img" alt="imagen3" src="imagenes/img8.jpg" >
-                            <img class="modal__img" alt="imagen4" src="imagenes/img9.jpg" >
-                            <img class="modal__img" alt="imagen5" src="imagenes/img10.jpg" >
-                        </div>
-                        <div class="column">
-                            <img class="modal__img" alt="imagen1" src="imagenes/img11.jpg" >
-                            <img class="modal__img" alt="imagen2" src="imagenes/img12.jpg" >
-                            <img class="modal__img" alt="imagen3" src="imagenes/img5.jpg" >
-                            <img class="modal__img" alt="imagen4" src="imagenes/img9.jpg" >
-                            <img class="modal__img" alt="imagen5" src="imagenes/img5.jpg" >
-                        </div>
-                        <div class="column">
-                            <img class="modal__img" alt="imagen1" src="imagenes/img6.jpg" >
-                            <img class="modal__img" alt="imagen2" src="imagenes/img2.jpg" >
-                            <img class="modal__img" alt="imagen3" src="imagenes/img8.jpg" >
-                            <img class="modal__img" alt="imagen4" src="imagenes/img12.jpg" >
-                            <img class="modal__img" alt="imagen5" src="imagenes/img11.jpg" >
-                        </div>
-                    </div>
-                </div>
+           
+                
+                
             </div>
         </div>
-
-
 
     </main>
 </body>

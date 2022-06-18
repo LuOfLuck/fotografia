@@ -408,13 +408,29 @@ header{
   outline: 1px solid slategrey;
 }
 .containerImagen{
-    width: 300px;
+    width: 300px !important ;
     height: 400px;
     margin: 0 50px;
     filter: drop-shadow(1px 1px 3px black);
-    filter: drop-shadow(1px 4px 3px rgba(100, 100, 100, 1)) drop-shadow(1px 1px 1px rgba(100, 100, 100, 0.87));*/
+}
+.containerImagen--add{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.containerImagen__icon{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-
+}
+.containerImagen__icon i{
+    text-align: center;
+    color: black;
+    font-size: 30px ;
 }
 .carrusel__img{
     background-color: white;;
@@ -429,7 +445,7 @@ header{
     transform: scale(1.1) !important;
 }
 .img--uptadate{
-    opacity: .1;
+    opacity: 0;
 }
 
 
@@ -800,13 +816,29 @@ header{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, .6);
-    display: none;
+    display: none; /*cambiar a none*/
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 60;
+}
+.cont--active{
+    display: flex;
+}
+.cont__exit{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: red;
+    z-index: 70;
+}
+.cont__exit i {
+    background-color: white;
+    font-size: 20px;
 }
 .modal{
     width: 90%;
@@ -816,11 +848,19 @@ header{
     background-color: rgba(220, 220, 220, .2);
     font-size: 16px;
 }
+.cont--active--form .modal{
+    width: 60%;
+    padding: 0px 0px;
+}
 .modal__header{
     width: 80%;
     padding: 25px 20px;
     margin: 10px 50px;
     background-color: rgba(245, 245, 245, 1.0);
+}
+.cont--active--form .modal__header{
+    width: 100%;
+    margin: 0px auto;
 }
 .modal__header__h1,
 .modal__header__span,
@@ -844,8 +884,6 @@ header{
 }
 .modal__body{
     background-color: transparent;
-
-    min-height: 1000px;
     margin: 20px 15px;
 }
 .animation--bottom{

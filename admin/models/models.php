@@ -26,7 +26,8 @@ class TableUser{
 		    ');
 		    $sth->bind_param("ss",$username, $password);
 		    $sth->execute();
-			return $sth;
+			$sth->bind_result($username, $email);
+			return ($sth->fetch())?array("username"=>$username,"email"=>$email):false;
 		}
 		catch (Exception $e){
         	return false;
@@ -79,19 +80,21 @@ class TableAlbum{
         }
 	}
 	function getAll(){
-		try{
 			//aca la verdad el 0 = ? (num = 0) es para que obtenga todo porque tengo paja de testear
 		    $sth = $this->con->prepare('
-		       SELECT id, titulo, descripcion, fecha FROM fotos WHERE 0 = ? 
+		       SELECT id, titulo, descripcion, fecha FROM album WHERE 0 = ? 
 		    ');
 		    $num = 0;
 		    $sth->bind_param("i",$num);
 		    $sth->execute();
-			return $sth;
-		}
-		catch (Exception $e){
-        	return false;
-        }  
+		    $sth->store_result();
+
+			$sth->bind_result($a,$b,$c,$d);
+			while ($sth->fetch()) {
+			     $outArr[] = ['id' => $a, 'titulo' => $b, 'descripcion' => $c, 'fecha' => $d];
+			}
+			$sth->close();
+			return $outArr;
 	}
 		
 }
@@ -158,14 +161,22 @@ class TableFotos{
         	return false;
         }
 	}
-	function getOne($id){
+	function getForAlbum($idAlbum){
 		try{
 		    $sth = $this->con->prepare('
-		       SELECT foto, album FROM fotos WHERE id = ?
+		       SELECT id, descripcion, foto FROM fotos WHERE album = ?
 		    ');
-		    $sth->bind_param("i",$id);
+		    $sth->bind_param("i",$idAlbum);
 		    $sth->execute();
-			return $sth;
+		    $sth->store_result();
+
+			$sth->bind_result($a,$b, $c);
+			$outArr = [];
+			while ($sth->fetch()) {
+			     $outArr[] = ['id' => $a, 'descripcion' => $b, 'srcFoto' => $c];
+			}
+			$sth->close();
+			return $outArr;
 		}
 		catch (Exception $e){
         	return false;

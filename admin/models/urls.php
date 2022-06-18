@@ -44,6 +44,7 @@
     }
     /* TABLA ALBUM */
     function createdAlbum(){
+        echo "aca 2";
         $jsonData = array();
         $jsonData["petition"] = false; 
         if(isset($_POST["titulo"]) and isset($_POST["descripcion"])){
@@ -53,15 +54,8 @@
             $descripcionLen = strlen($descripcion);
             if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000)){
                 global $tableAlbum;
-                /*
-                    tengo sueño aca tiene que retornar un json 
-                    ya que estos son rutas ajax.
-                    no se si deberia hacer un archivo aparte 
-                    teoria se puede usar en el mismo
-                    LUCAS NO TE OLVIDES DE LO QUE 
-                    TENES QUE HACER ACA POR FAVOR 
-                */
-                if($res = $tableAlbum->add($titulo, $descripcion){
+             
+                if($res = $tableAlbum->add($titulo, $descripcion)){
                     $jsonData["status"] = 201; 
                     $jsonData["message"] = "Album agregado"; 
                     $jsonData["objeto"] = array(
@@ -69,6 +63,7 @@
                         "descripcion" => $descripcion,
                     );
                     $jsonData["petition"] = true; 
+                  
                 }else{
                     $jsonData["status"] = 503; 
                     $jsonData["message"] = "Album no agregado";                 
@@ -81,7 +76,8 @@
             $jsonData["status"] = 401; 
             $jsonData["message"] = "No existen los campos"; 
         }
-        echo $jsonData;
+        echo json_encode($jsonData);
+        header("location: ../../index.php");
         exit();
     }
     function deleteAlbum(){
@@ -135,7 +131,6 @@
         exit(); 
     }
     /* TABLA IMG*/
-    }
     function addImg(){
         $jsonData = array();
         $jsonData["petition"] = false;
@@ -153,6 +148,7 @@
                     "type"=> $type,
                     "size"=> $size,
                 );
+                global $tableFoto;
                 $tableFoto->add($data,"", $album_id);
             }
             $jsonData["petition"] = true;
@@ -162,7 +158,8 @@
             $jsonData["status"] = 401; 
             $jsonData["message"] = "No existen los campos"; 
         }
-        echo $jsonData;
+        echo json_encode($jsonData);
+        header("location: ../../index.php");
         exit(); 
     }
     function deleteImg(){
@@ -244,6 +241,7 @@
                 if(isset($_POST['updateImg'])){
                     updateImg();
                 }
+                echo "aca";
             } 
         }else{
             if(isset($_GET["logout"])){

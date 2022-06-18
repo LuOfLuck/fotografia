@@ -27,7 +27,12 @@ class Security{
 		$_SESSION["message"] = "Solicitud no permitida";
     }
     function violationVal(){
-    	return ($_SESSION["violation"] < 10)?true:false;
+    	if (isset($_SESSION["violation"])){
+    		return ($_SESSION["violation"] < 10)?true:false;
+    	}else{
+    		$_SESSION["violation"] = 0;
+    		return true;
+    	}
     }
     function userActive(){
     	if(isset($_SESSION["active"])){
