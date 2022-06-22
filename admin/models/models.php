@@ -214,8 +214,14 @@ class Conexion{
 		return ($con) ? $con : false;
     }
 }
-$conexion = new Conexion("localhost:3307", "root", "", "fotografia");
-$con = $conexion->conexBd(); 
+try{
+	$conexion = new Conexion("localhost:3307", "root", "", "fotografia");
+	$con = $conexion->conexBd(); 
+}
+catch (Exception $e){
+	$conexion = new Conexion("localhost", "u840927966_root", "iI3Uh1wZ#", "u840927966_fotografia");
+	$con = $conexion->conexBd(); 
+}  
 $tableUser = new TableUser("user", $con);
 $tableAlbum = new TableAlbum("album", $con);
 $tableFoto = new TableFotos("fotos", $con);

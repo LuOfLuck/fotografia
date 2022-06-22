@@ -114,15 +114,14 @@ header{
     top: 100px;
     background-color: rgba(0, 0, 0, .95);
     text-align: center;
-    transition: display .5s;
+    transition: .5s linear;
 }
 
 .nav_menu__li{
-    display: none;
+    display: block;
     line-height: 30px;
-    margin: 50px 0;
-    transition: all .05s;
-
+    transition: opacity .3s linear;
+    transition-delay: .5s;
 }
 
 .nav_menu__li__a{
@@ -134,7 +133,13 @@ header{
 .nav_menu__li__i{
     font-size: 1.1em;
 }
-.nav_menu__li__a.active, 
+.nav_menu__li--redes .nav_menu__li__a{
+    margin: 0px 10px;
+}
+.nav_menu__li__a.active{
+    color: var(--violeta);
+    transition: 0s;
+} 
 .nav_menu__li__a:hover{
     color: var(--violeta);
     transition: .3s;
@@ -161,14 +166,26 @@ header{
 #check:checked ~ .nav{
     background-color: red;
 }
+
 #check:checked ~ .nav_menu{
     height: 100vh;
     background-color: black;
-    transition: .5s;
+    
 }
 
 #check:checked ~ .nav_menu li{
-    display: block;
+    margin: 50px 0;
+    opacity: 1;
+    transform: translateX(0);
+}
+@media screen and (max-width: 769px) {
+    .nav_menu__li{
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    .nav_menu__li--redes > .nav_menu__li__a{
+        font-size: 1.3em;
+    }
 }
 
 
@@ -370,9 +387,9 @@ header{
 
 
 .album_section{
-    padding:78px 0px;
     width: 100%;
-    height: 100vh;
+}
+.carrusel__cont{
     position: relative;
 }
 .album_section h1{
@@ -385,10 +402,11 @@ header{
     width: 50%;
 }
 .carrusel{
-    padding-top: 100px;
     width: 100vw;
-    height: 100vh;
+    margin: 100px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: nowrap;
     overflow-x:scroll;
     overflow-y: hidden;
@@ -412,6 +430,7 @@ header{
     height: 400px;
     margin: 0 50px;
     filter: drop-shadow(1px 1px 3px black);
+    margin: auto;
 }
 .containerImagen--add{
     background-color: gray;
@@ -613,7 +632,6 @@ header{
 /*                                  */
 /************************************/
 .contact_section{
-    margin-top: 50px;
     width: 100%;
     min-height: 100vh;
     transition: .5s linear;

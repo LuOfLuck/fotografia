@@ -93,10 +93,8 @@ modal.addEventListener("scroll", ()=>{
         }
     }
 })
+
 function modalImg(album, fotos, coken,active){
-    console.log(album)
-    console.log(fotos)
-    console.log(coken)
     modal.insertAdjacentHTML('afterbegin', `
         <div class="modal__header">
             <h1 class="modal__header__h1">${album.titulo} <span class="modal__header__span">${album.fecha}</span></h1>
@@ -157,4 +155,27 @@ if(addAlbum){
 contExit.addEventListener("click", ()=>{
     cont.classList.remove("cont--active", "cont--active--form");
     modal.innerHTML = "";
+})
+
+const check = document.getElementById("check");
+const menuList = document.getElementsByClassName("nav_menu__li__a");
+for(elementoList of menuList){
+    elementoList.addEventListener("click", (e)=>{
+        check.checked = false; 
+    })
+}
+const section = document.getElementsByClassName("section")
+window.addEventListener("scroll", ()=>{
+    let valor = 570;
+    for(let i = 0; i < section.length; i++){
+        let sectionTop = section[i].getBoundingClientRect().top;
+        console.log(section[i].id + "----" + sectionTop)
+            if(sectionTop < 10){
+                console.log("cambio")
+                for(let i2 = 0; i2 < menuList.length; i2++){
+                    menuList[i2].classList.remove("active");
+                }
+                menuList[i].classList.add("active")
+            }
+    }
 })

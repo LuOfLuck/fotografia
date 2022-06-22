@@ -56,17 +56,17 @@
                 <li id="contact_menu_header" class="nav_menu__li"> 
                     <a href="#contact" class="nav_menu__li__a">Contact</a>
                 </li>
-                <li class="nav_menu__li">
+                <li class="nav_menu__li nav_menu__li--redes">
                     <a href="https://www.facebook.com/profile.php?id=100081935944987" class="nav_menu__li__a">
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
                     </a>
-                </li>
-                <li class="nav_menu__li">
+                
+                
                     <a href="https://instagram.com/lucasgabrielph" class="nav_menu__li__a" target="_BLANK">
                         <i class="nav_menu__li__i fab fa-instagram" aria-hidden="true"></i>
                     </a>
-                </li>
-                <li class="nav_menu__li">
+                
+                
                     <a href="" class="nav_menu__li__a" target="_BLANK">
                         <i class="nav_menu__li__i fab fa-whatsapp" aria-hidden="true"></i>
                     </a>
@@ -75,7 +75,7 @@
         </nav>
     </header>
     <main>
-        <section id="home" class="home_section">
+        <section id="home" class="home_section section">
             <div class="logo">
                 <img src="imagenes/logo.png" class="logo__img animation--bottom" alt="Banner - Lucas Gabriel">  
                 <div class="logo__p animation--bottom">
@@ -85,7 +85,7 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="about_section">
+        <section id="about" class="about_section section">
             <div class="main">
                 <img src="imagenes/imagenAbout1.jpg" class="animation--bottom" alt="">
                 <div class="about-text animation--bottom">
@@ -99,41 +99,44 @@
                 </div>
             </div>
         </section>
-        <section id="albums" class="album_section">
+        <section id="albums" class="album_section section">
             <h1 class="animation--bottom">ALBUMS</h1>
-            <div id="arrow-left" class="arrow arrow--left"> < </div>
-                        <i class="fa-solid fa-plus"></i> 
-            <div id="arrow-right" class="arrow arrow--right"> > </div>
-            <div id="carrusel" class="carrusel">
-                <?php 
-                if($_SESSION["active"]){ ?>
-                <div id="add__album" class="containerImagen containerImagen--add">
-                    <div  class="containerImagen__icon">
-                        <i class="fa-solid fa-plus"></i> 
+            <div class="carrusel__cont">
+                <div id="arrow-left" class="arrow arrow--left"> < </div>
+                            <i class="fa-solid fa-plus"></i> 
+                <div id="arrow-right" class="arrow arrow--right"> > </div>
+                <div id="carrusel" class="carrusel">
+                    <?php 
+                    if($_SESSION["active"]){ ?>
+                    <div id="add__album" class="containerImagen containerImagen--add">
+                        <div  class="containerImagen__icon">
+                            <i class="fa-solid fa-plus"></i> 
 
-                    </div>
-                </div>
-                <?php 
-                    }
-                   foreach ($arrayAlbum as &$album) {
-                        $arrayFoto = $tableFoto->getForAlbum($album["id"]);                ?>
-                        <div class="containerImagen ">
-                            <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
-                            <div class="carrusel__img__description">
-                                <h3 class="img__description__h3"><?php echo $album["titulo"]; ?></h3>
-                                <p class="img__description__p"><?php echo $album["descripcion"]; ?></p>
-                                <button 
-                                    onclick='modalImg(<?php echo json_encode($album);?>,<?php echo json_encode($arrayFoto);?>,"<?php echo $token;?>", <?php echo $_SESSION['active'];?>)'
-                                    class="img__description__button">ver</button>
-                            </div>
                         </div>
-                <?php
-                    }
-                ?>
+                    </div>
+                    <?php 
+                        }
+                       foreach ($arrayAlbum as &$album) {
+                            $arrayFoto = $tableFoto->getForAlbum($album["id"]);                ?>
+                            <div class="containerImagen ">
+                                <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
+                                <div class="carrusel__img__description">
+                                    <h3 class="img__description__h3"><?php echo $album["titulo"]; ?></h3>
+                                    <p class="img__description__p"><?php echo $album["descripcion"]; ?></p>
+                                    <button 
+                                        onclick='modalImg(<?php echo json_encode($album);?>,<?php echo json_encode($arrayFoto);?>,"<?php echo $token;?>", <?php echo $_SESSION['active'];?>)'
+                                        class="img__description__button">ver</button>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    ?>
+                </div>
             </div>
+            
         </section>
 
-        <section id="contact" class="contact contact_section contact--focus">
+        <section id="contact" class="contact contact_section section contact--focus">
             <form id="id_form" class="form_box" method="POST" action="correo.php">
                 <h1 class="from__h1">Contactame</h1>
                 <div class="input_box animation--bottom">
