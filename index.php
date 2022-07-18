@@ -7,6 +7,7 @@
     if(!isset($_SESSION['active'])){
         $_SESSION['active'] = false;
     }
+    $status = $_SESSION['active'];
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +21,10 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/galeria.css">
-    <script src="https://kit.fontawesome.com/9ec8210292.js" crossorigin="anonymous"></script>                                                              
+    <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
+                                                                
 </head>
-<body>
+<body class="<?php if($status){echo 'admin';}?>" > 
 
 
     <!--
@@ -103,20 +105,21 @@
             <h1 class="animation--bottom">ALBUMS</h1>
             <div class="carrusel__cont">
                 <div id="arrow-left" class="arrow arrow--left"> < </div>
-                            <i class="fa-solid fa-plus"></i> 
                 <div id="arrow-right" class="arrow arrow--right"> > </div>
+                
                 <div id="carrusel" class="carrusel">
+              
                     <?php 
                     if($_SESSION["active"]){ ?>
                     <div id="add__album" class="containerImagen containerImagen--add">
                         <div  class="containerImagen__icon">
-                            <i class="fa-solid fa-plus"></i> 
+                            <i class="fa fa-plus"></i>
 
                         </div>
                     </div>
                     <?php 
                         }
-                       foreach ($arrayAlbum as &$album) {
+                    foreach ($arrayAlbum as &$album) {
                             $arrayFoto = $tableFoto->getForAlbum($album["id"]);                ?>
                             <div class="containerImagen ">
                                 <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
@@ -127,6 +130,7 @@
                                         onclick='modalImg(<?php echo json_encode($album);?>,<?php echo json_encode($arrayFoto);?>,"<?php echo $token;?>", <?php echo $_SESSION['active'];?>)'
                                         class="img__description__button">ver</button>
                                 </div>
+                                
                             </div>
                     <?php
                         }
@@ -166,7 +170,7 @@
         <!-- Model pero para probar y preparar -->
         <div id="cont" class="cont">
             <div id="cont__exit" class="cont__exit">
-                <i class="fa-solid fa-x"></i>
+           <p>x</p>
             </div>
             <div id="modal" class="modal claro">
            
@@ -177,8 +181,28 @@
 
     </main>
 </body>
+
 <script src="js/main.js"></script>
 <script src="js/animation.js"></script>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script><footer>
-</footer>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<footer class="footer">
+		<div class="footer__block footer__media">
+
+			<a href="https://www.facebook.com/profile.php?id=100081935944987" class="icons_redes" target="_BLANK">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com/lucasgabrielph" class="icons_redes" target="_BLANK">
+                <i class="nav_menu__li__i fab fa-instagram" aria-hidden="true"></i>
+            </a>
+
+            <a href="" class="icons_redes" target="_BLANK">
+                <i class="nav_menu__li__i fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="" class="icons_redes" target="_BLANK">
+                <i class="nav_menu__li__i fa fa-envelope" aria-hidden="true"></i>
+            </a>
+            <a>@lucasgabrielph</a>
+		</div>
+		
+	</footer> 
 </html>

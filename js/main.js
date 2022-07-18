@@ -124,7 +124,12 @@ function modalImg(album, fotos, coken,active){
     }
     fotos.forEach((foto) =>{
         modalColumn.insertAdjacentHTML('beforeend', `
-            <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
+            <div class="colum__img">
+                <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
+                <div class="modal__before">
+                    <span>x</span>
+                </div>
+            </div>
         `)
     });
 }        

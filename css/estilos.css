@@ -426,6 +426,7 @@ header{
   outline: 1px solid slategrey;
 }
 .containerImagen{
+    position: relative;
     width: 300px !important ;
     height: 400px;
     margin: 0 50px;
@@ -451,6 +452,7 @@ header{
     color: black;
     font-size: 30px ;
 }
+
 .carrusel__img{
     background-color: white;;
     border-radius: 20px;
@@ -849,14 +851,33 @@ header{
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 50px;
-    right: 50px;
-    background-color: red;
+    top:50px;
+    right: 150px;
     z-index: 70;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid rgba(245, 245, 245, 1.0);
+    background-color: transparent;
+    transition: .3s linear;
 }
-.cont__exit i {
-    background-color: white;
-    font-size: 20px;
+.cont__exit p {
+    color: rgba(245, 245, 245, 1.0);
+    font-family:monospace;
+    font-size:2em;
+    font-weight:800;
+    transition: .3s linear;
+}
+.modal__before:hover,
+.cont__exit:hover{
+    cursor: pointer;
+    background-color: rgba(245, 245, 245, 1.0);   
+}
+.modal__before:hover span,
+.cont__exit:hover p{
+    color: black;
 }
 .modal{
     width: 90%;
@@ -920,10 +941,41 @@ header{
 /*            FIN PROCESO           */
 /*                                  */
 /************************************/
+/************************************/
+/*                                  */
+/*            FOOTER           */
+/*                                  */
+/************************************/
+.footer{
+	font-size: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color:rgba(100, 100, 100, 1.0);;;
+	padding: 30px 20px 50px 20px;
+}
+.footer .icons_redes{
+        margin-top: 10px;
+        font-size: 1.3em;
+        color: white;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        padding:10px;
+        border-radius: 50%;
+        transition: .5s;
 
-
-
-
+}
+.footer .icons_redes:hover{
+    background-color:rgb(200, 14, 163);
+    color: white;
+}
+.footer p{
+    align-items:FLE;
+}
+.footer__block footer__media{
+    align-items: flex-end;
+}
 
 
 .animation--bottom{

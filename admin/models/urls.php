@@ -16,7 +16,7 @@
                         $_SESSION["username"] = $res["username"];
                         $_SESSION["email"] = $res["email"];
                         $_SESSION["loginIncorrect"] = 0;
-                        header("location: ../perfil.php");
+                        header("location: ../../index.php");
                         exit();     
                     }else{
                         if(isset($_SESSION["loginIncorrect"])){
