@@ -426,7 +426,6 @@ header{
   outline: 1px solid slategrey;
 }
 .containerImagen{
-    position: relative;
     width: 300px !important ;
     height: 400px;
     margin: 0 50px;
@@ -452,7 +451,6 @@ header{
     color: black;
     font-size: 30px ;
 }
-
 .carrusel__img{
     background-color: white;;
     border-radius: 20px;
@@ -851,33 +849,15 @@ header{
     width: 50px;
     height: 50px;
     position: absolute;
-    top:50px;
-    right: 150px;
+    top:20px;
+    right: 50px;
     z-index: 70;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 3px solid rgba(245, 245, 245, 1.0);
-    background-color: transparent;
-    transition: .3s linear;
 }
 .cont__exit p {
-    color: rgba(245, 245, 245, 1.0);
+    color: white;
     font-family:monospace;
-    font-size:2em;
-    font-weight:800;
-    transition: .3s linear;
-}
-.modal__before:hover,
-.cont__exit:hover{
-    cursor: pointer;
-    background-color: rgba(245, 245, 245, 1.0);   
-}
-.modal__before:hover span,
-.cont__exit:hover p{
-    color: black;
+    font-size:8vh;
+    font-weight:60;
 }
 .modal{
     width: 90%;
@@ -921,6 +901,7 @@ header{
 .modal__header__p{
     color:  rgba(100, 100, 100, 1.0);;
 }
+
 .modal__body{
     background-color: transparent;
     margin: 20px 15px;
@@ -934,6 +915,27 @@ header{
 .active{
     opacity: 100%;
     transform:translateY(-150px);
+}
+.modal_icon{
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    margin: 5px;
+    transition-property:
+        outline-offset, outline-color,
+        background-color;
+    transition-duration: .25s;
+}
+.modal_icon:hover{
+    outline-offset: 2px;
+    background-color: red;
 }
 
 /************************************/
@@ -951,33 +953,73 @@ header{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	background-color:rgba(100, 100, 100, 1.0);;;
-	padding: 30px 20px 50px 20px;
+	background-color:rgb(0 0 0 / 95%);
+	padding: 10px 20px 50px 20px;
 }
-.footer .icons_redes{
-        margin-top: 10px;
-        font-size: 1.3em;
-        color: white;
-        text-align: center;
-        width: 30px;
-        height: 30px;
-        padding:10px;
-        border-radius: 50%;
-        transition: .5s;
+.footer__block{
+	color: white;
+	min-width: 20%;
+	margin: auto;
+    display: flex;
+}
+.footer__media{
+	width: 30%;
+	text-align: center;
+}
+.footer__aviso{
+	width: 40%;
+	text-align: center;
+}
+.footer__legal{
+	width: 25%;
+}
+.footer__subtitulo{
+    padding-bottom: 10px;
+	text-align: center;
+	font-size: 1.2em;
+	color: white;
+}
+.block__ul{
+	 list-style-type: none;
+}
+.block__ul__li a{
+	color: white;
+	text-decoration: none;
+}
+.icon{
+    width: 45px;
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    margin: 5px;
+    transition-property:
+        outline-offset, outline-color,
+        background-color;
+    transition-duration: .25s;
+}
+.icon:hover {
+    outline-offset: 2px;
+    background-color: rgb(255, 0, 204);
+}
 
-}
-.footer .icons_redes:hover{
-    background-color:rgb(200, 14, 163);
-    color: white;
-}
-.footer p{
-    align-items:FLE;
-}
-.footer__block footer__media{
-    align-items: flex-end;
+.icon:hover i {
+    animation: shake .25s;
 }
 
 
-.animation--bottom{
-
+.scoll_back{
+	transition: 3s;
 }
+
+/************************************/
+/*                                  */
+/*                 */
+/*                                  */
+/************************************/
+

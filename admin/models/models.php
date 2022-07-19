@@ -214,14 +214,15 @@ class Conexion{
 		return ($con) ? $con : false;
     }
 }
-//		try{	
-	$conexion = new Conexion("127.0.0.1:3307", "root", "", "fotografia");
+try{
+	/*$conexion = new Conexion("localhost:3307", "root", "", "fotografia");*/
+	$conexion = new Conexion("localhost", "root", "", "fotografia");
 	$con = $conexion->conexBd(); 
-// }
-// catch (Exception $e){
-// 	$conexion = new Conexion("localhost", "u840927966_root", "iI3Uh1wZ#", "u840927966_fotografia");
-// 	$con = $conexion->conexBd(); 
-// }  
+}
+catch (Exception $e){
+	$conexion = new Conexion("localhost", "u840927966_root", "iI3Uh1wZ#", "u840927966_fotografia");
+	$con = $conexion->conexBd(); 
+}  
 $tableUser = new TableUser("user", $con);
 $tableAlbum = new TableAlbum("album", $con);
 $tableFoto = new TableFotos("fotos", $con);

@@ -19,52 +19,13 @@ img{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
 
-.colum__img{
-    position: relative;
-    margin: 15px 15px;
-    max-width: 45%;
 }
-
 .column img{
-    width: 100%;
+    margin: 5px 5px;
+    width: 46%;
 }
-.modal__before{
-    display: none;
-}
-.admin .modal__before{
-    display: block;
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
-    z-index: 70;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 3px solid rgba(245, 0, 0, .7);
-    background-color: rgba(245, 0, 0, .7);
-    transition: .3s linear;
-}
-.admin .modal__before span{
-    color: rgba(245, 245, 245, 1.0);
-    font-family:monospace;
-    font-size:1em;
-    font-weight:900;
-    transition: .3s linear;
-}
-.modal__before:hover{
-    cursor: pointer;
-    background-color: rgba(245, 245, 245, 1.0);   
-}
-.modal__before:hover span{
-    color: rgba(245, 0, 0, .7);
-}
+
 @media(max-width:600px){
     .column{
         flex: 100%;

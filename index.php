@@ -7,7 +7,6 @@
     if(!isset($_SESSION['active'])){
         $_SESSION['active'] = false;
     }
-    $status = $_SESSION['active'];
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +23,7 @@
     <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
                                                                 
 </head>
-<body class="<?php if($status){echo 'admin';}?>" > 
+<body>
 
 
     <!--
@@ -93,10 +92,7 @@
                 <div class="about-text animation--bottom">
                     <h1>¿QUIEN SOY?</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Sint sapiente mollitia facere doloremque, provident aut 
-                        accusamus nesciunt est eos nam vero error numquam dolores
-                        reiciendis tempore suscipit voluptatum cupiditate a.
+                    ‌Mi nombre es Lucas Gabriel Carmelo, vivo en Argentina mas precisamente en Buenos Aires tengo 21 años y me dedico principalmente a la fotografía de retrato, fotografía de moda y fotografía de producto, espero que disfrutes de mi trabajo!
                     </p>
                 </div>
             </div>
@@ -130,7 +126,6 @@
                                         onclick='modalImg(<?php echo json_encode($album);?>,<?php echo json_encode($arrayFoto);?>,"<?php echo $token;?>", <?php echo $_SESSION['active'];?>)'
                                         class="img__description__button">ver</button>
                                 </div>
-                                
                             </div>
                     <?php
                         }
@@ -175,8 +170,9 @@
             <div id="modal" class="modal claro">
            
                 
-                
+            
             </div>
+           
         </div>
 
     </main>
@@ -186,23 +182,13 @@
 <script src="js/animation.js"></script>
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 <footer class="footer">
-		<div class="footer__block footer__media">
-
-			<a href="https://www.facebook.com/profile.php?id=100081935944987" class="icons_redes" target="_BLANK">
-                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="https://instagram.com/lucasgabrielph" class="icons_redes" target="_BLANK">
-                <i class="nav_menu__li__i fab fa-instagram" aria-hidden="true"></i>
-            </a>
-
-            <a href="" class="icons_redes" target="_BLANK">
-                <i class="nav_menu__li__i fab fa-whatsapp" aria-hidden="true"></i>
-            </a>
-            <a href="" class="icons_redes" target="_BLANK">
-                <i class="nav_menu__li__i fa fa-envelope" aria-hidden="true"></i>
-            </a>
-            <a>@lucasgabrielph</a>
+        <div class="footer__block footer__media">
+                    <a href="https://www.facebook.com/lu.de.luck/" rel="Facebook del autor" class="icon" target="_BLANK"><i class="fab fa-facebook-square footer__icon"></i>
+                    <a href="https://www.instagram.com/lugically_cosmic2.2/" rel="instagram del autor" class="icon" target="_BLANK"><i class="fab fa-instagram footer__icon"></i></a>
+                    <a href="https://twitter.com/Lu_Of_Luck" rel="Twitter del autor" class="icon" target="_BLANK"> <i class="fab fa-twitter footer__icon"></i></a>    
+        </div>
+		<div class="footer__block footer__aviso">
+			<p>lucasGabrielPh © 2022</p>
 		</div>
-		
 	</footer> 
 </html>

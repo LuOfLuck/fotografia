@@ -108,7 +108,9 @@ function modalImg(album, fotos, coken,active){
                                     
                 </div>
             </div>
+            <a href="" class="modal_icon"><i class="fa fa-trash"></i></a>
         </div>
+        
     `);    
     var modalColumn = document.getElementById("column");
     if(active){
@@ -124,12 +126,7 @@ function modalImg(album, fotos, coken,active){
     }
     fotos.forEach((foto) =>{
         modalColumn.insertAdjacentHTML('beforeend', `
-            <div class="colum__img">
-                <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
-                <div class="modal__before">
-                    <span>x</span>
-                </div>
-            </div>
+            <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
         `)
     });
 }        
