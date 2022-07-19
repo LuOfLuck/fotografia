@@ -140,14 +140,13 @@ if(addAlbum){
         modal.insertAdjacentHTML('beforeend', `
             <div class="modal__header">
                 <h1 class="modal__header__h1">AGREGAR ALBUM</h1>
-                <form action="admin/models/urls.php" method="POST">
+                <form action="admin/models/urls.php" method="POST" class="form__modal">
                     <input type="hidden" name="CSRFToken" value="<?php echo $_SESSION['CSRFToken']; ?>">
                     <input type="hidden" name="crearAlbum" value="True">
-                    <label for="id_titulo">Titulo</label>
-                    <input type="text" name="titulo" id="id_titulo" placeholder="Titulo">
+                    <input type="text" name="titulo" id="id_titulo" placeholder="Titulo" class="modal__input_txt">
                     <label for="id_descripcion"></label>
-                    <textarea name="descripcion" id="id_descripcion" placeholder="descricpion"></textarea>
-                    <input type="submit" value="enviar">
+                    <textarea name="descripcion" id="id_descripcion" placeholder="Descricpion" class="modal__input_txt"></textarea>
+                    <input type="submit" value="Enviar" class="modal__input_enviar">
                 </form>
             </div>
         `);

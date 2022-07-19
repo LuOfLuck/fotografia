@@ -367,9 +367,6 @@ header{
     .main{
         flex-direction: column;
     }
-    .about_section{
-        
-    }
     .about_section img{
         height: auto;
         width: 80%;
@@ -902,6 +899,21 @@ header{
     color:  rgba(100, 100, 100, 1.0);;
 }
 
+.modal__input_txt{
+    width:50%;
+    border-radius: 5px;
+    border: 2px solid rgb(62, 69, 72);
+    padding: 5px;
+    margin: 5px;
+   
+}
+.modal__input_enviar{
+    width:20%;
+    border-radius: 5px;
+    border: 2px solid rgb(62, 69, 72);
+    margin: 5px;
+    padding: 5px;
+}
 .modal__body{
     background-color: transparent;
     margin: 20px 15px;

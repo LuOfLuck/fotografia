@@ -215,8 +215,8 @@ class Conexion{
     }
 }
 try{
-	/*$conexion = new Conexion("localhost:3307", "root", "", "fotografia");*/
-	$conexion = new Conexion("localhost", "root", "", "fotografia");
+	$conexion = new Conexion("localhost:3307", "root", "", "fotografia");
+	/*$conexion = new Conexion("localhost", "root", "", "fotografia");*/
 	$con = $conexion->conexBd(); 
 }
 catch (Exception $e){
