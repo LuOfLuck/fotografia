@@ -21,20 +21,18 @@ const MovCarrucel = ()=>{
     })
 }
 MovCarrucel()
-var imagenes=[
-    'imagenes/img11.jpg',
-    'imagenes/img9.jpg',
-    'imagenes/img4.jpg',
-    'imagenes/img12.jpg'
-];
-var indiceImagenes=0;
 
-carruceImg.forEach((e)=>{
-    e.addEventListener('mouseover', function (){
-        function cambiarImagenes(){
+
+    function cambiarImagenes(idAlbum, imagenes){
+        var indiceImagenes=0;
+        console.log(idAlbum +" --- " + imagenes[2])
+        const e = document.getElementById(idAlbum)
+        console.log(e)
+        function cambiarImagenesDelay(  ){
             e.classList.add("img--uptadate")
             setTimeout(()=>{
-                e.src = imagenes[indiceImagenes];
+                console.log("admin/models/img/" + imagenes[indiceImagenes])
+                e.src = "admin/models/img/" + imagenes[indiceImagenes];
                 if(indiceImagenes<3){
                     indiceImagenes++;
                 }else{
@@ -44,17 +42,17 @@ carruceImg.forEach((e)=>{
             }, 300);
 
         }
-        const cambiarImg = setInterval(cambiarImagenes, 1500);
+        const cambiarImg = setInterval(cambiarImagenesDelay, 1500);
         e.addEventListener("mouseout", ()=>{
                 clearInterval(cambiarImg);
         })
         e.addEventListener("click", ()=>{
+            console.log('rerer')
             const descripcionBox = e.nextElementSibling;
             descripcionBox.classList.add("carrusel__img__description--active");
 
         });
-    });
-});
+    }
 
 carrusel.addEventListener("click", (element) => {
     if(element.target.tagName == "BUTTON"){
@@ -126,6 +124,12 @@ function modalImg(album, fotos, coken,active){
     }
     fotos.forEach((foto) =>{
         modalColumn.insertAdjacentHTML('beforeend', `
+            <div class="colum__img">
+                <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
+                <div class="modal__before">
+                    <span>x</span>
+                </div>
+            </div>
             <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
         `)
     });
@@ -170,9 +174,8 @@ window.addEventListener("scroll", ()=>{
     let valor = 570;
     for(let i = 0; i < section.length; i++){
         let sectionTop = section[i].getBoundingClientRect().top;
-        console.log(section[i].id + "----" + sectionTop)
-            if(sectionTop < 10){
-                console.log("cambio")
+        //console.log(section[i].id + "----" + sectionTop)
+            if(sectionTop < 10){    
                 for(let i2 = 0; i2 < menuList.length; i2++){
                     menuList[i2].classList.remove("active");
                 }
@@ -180,3 +183,14 @@ window.addEventListener("scroll", ()=>{
             }
     }
 })
+/*
+document.addEventListener("click", (e)=>{
+    console.log(e)
+    if (!(/\ carrusel__img\b/g.test(e.target.className))){
+        console.log("boo")
+        const imagenes = document.querySelectorAll(".carrusel__img__description--active");
+        for (imagen of imagenes){
+            imagen.classList.remove("carrusel__img__description--active")
+        }
+    }
+})*/

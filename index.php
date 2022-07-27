@@ -7,6 +7,7 @@
     if(!isset($_SESSION['active'])){
         $_SESSION['active'] = false;
     }
+    $status = $_SESSION['active'];
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +24,7 @@
     <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
                                                                 
 </head>
-<body>
-
+<body class="<?php if($status){echo 'admin';}?>" > 
 
     <!--
         Ignora esta parte, no vale descomentar
@@ -116,9 +116,31 @@
                     <?php 
                         }
                     foreach ($arrayAlbum as &$album) {
-                            $arrayFoto = $tableFoto->getForAlbum($album["id"]);                ?>
-                            <div class="containerImagen ">
-                                <img src="imagenes/lucasImg (1).jpg" alt="" class="carrusel__img elemento">
+                            $arrayFoto = $tableFoto->getForAlbum($album["id"]);       ?>
+                            <div 
+                                onmouseover="cambiarImagenes(
+                                    '<?php echo "album-" . $album["id"];?>',
+                                    <?php
+                                    $cont = 0;
+                                    echo "[";
+                                    foreach ($arrayFoto as &$foto) {
+                                        $cont++;
+                                        echo "'" .  $foto['srcFoto'] . "',";
+                                        if($cont > 5){
+                                            break;
+                                        }
+                                    }
+                                    echo "]";
+                                    ?>
+                                )" 
+                                class="containerImagen ">
+                                <img id='<?php echo "album-" . $album["id"];?>'  
+                                    src="
+                                    admin/models/img/<?php echo $arrayFoto[0]['srcFoto'];?>
+                                    " 
+                                    alt="" 
+                                    class="carrusel__img elemento"
+                                >
                                 <div class="carrusel__img__description">
                                     <h3 class="img__description__h3"><?php echo $album["titulo"]; ?></h3>
                                     <p class="img__description__p"><?php echo $album["descripcion"]; ?></p>
@@ -191,4 +213,7 @@
 			<p>lucasGabrielPh © 2022</p>
 		</div>
 	</footer> 
+
+
+
 </html>
