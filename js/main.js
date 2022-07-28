@@ -31,7 +31,6 @@ MovCarrucel()
         function cambiarImagenesDelay(  ){
             e.classList.add("img--uptadate")
             setTimeout(()=>{
-                console.log("admin/models/img/" + imagenes[indiceImagenes])
                 e.src = "admin/models/img/" + imagenes[indiceImagenes];
                 if(indiceImagenes<3){
                     indiceImagenes++;
@@ -47,7 +46,6 @@ MovCarrucel()
                 clearInterval(cambiarImg);
         })
         e.addEventListener("click", ()=>{
-            console.log('rerer')
             const descripcionBox = e.nextElementSibling;
             descripcionBox.classList.add("carrusel__img__description--active");
 
@@ -124,13 +122,12 @@ function modalImg(album, fotos, coken,active){
     }
     fotos.forEach((foto) =>{
         modalColumn.insertAdjacentHTML('beforeend', `
-            <div class="colum__img">
+            <div id="imagen-${foto.id}" class="colum__img">
                 <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
-                <div class="modal__before">
+                <div onclick="deleteImg(${foto.id}, '${foto.srcFoto}')" class="modal__before">
                     <span>x</span>
                 </div>
-            </div>
-            <img class="modal__img" alt="${foto.descripcion}" src="admin/models/img/${foto.srcFoto}" >
+            </div
         `)
     });
 }        
@@ -183,14 +180,12 @@ window.addEventListener("scroll", ()=>{
             }
     }
 })
-/*
+
 document.addEventListener("click", (e)=>{
-    console.log(e)
-    if (!(/\ carrusel__img\b/g.test(e.target.className))){
-        console.log("boo")
+    if (!(e.target.classList.contains("carrusel__img"))){
         const imagenes = document.querySelectorAll(".carrusel__img__description--active");
         for (imagen of imagenes){
             imagen.classList.remove("carrusel__img__description--active")
         }
     }
-})*/
+})

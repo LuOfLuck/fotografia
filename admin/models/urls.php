@@ -170,16 +170,15 @@
             $id = $_POST["id"];
             $res = $tableFoto->delete($id);
             if($res){
-                $res = $tableFoto->getOne(18);
-                $res->bind_result($urlImg, $idAlbum);
+                
                 $jsonData["petition"] = true;
                 $jsonData["status"] = 201; 
-                $jsonData["message"] = "Imagen agregada con exito"; 
-                if($res->fetch() == 1){
-                    If (!unlink("img/$urlImg")){
-                        $jsonData["message"] = "La Imagen de formal local no se pudo borrar "; 
-                    }
+                $jsonData["message"] = "Imagen agregada con exito";
+                $urlImg = $_POST["urlImg"]; 
+                if(!unlink("img/$urlImg")){
+                    $jsonData["message"] = "La Imagen de formal local no se pudo borrar "; 
                 }
+                
             }else{
                 $jsonData["status"] = 503; 
                 $jsonData["message"] = "No se pudo borrar la imagen"; 
@@ -188,6 +187,8 @@
             $jsonData["status"] = 401; 
             $jsonData["message"] = "campos no validos"; 
         }
+        echo json_encode($jsonData);
+        exit(); 
     }
     function updateImg(){
         $jsonData = array();
@@ -217,9 +218,10 @@
         }
     }
     /* URL */
+    $_SESSION["violation"] = 0; //comentar luego
     if($security->violationVal()){
-        if(isset($_POST['CSRFToken'])) {
-            if($security->valToken($_POST['CSRFToken'])){
+    //    if(isset($_POST['CSRFToken'])) {
+      //      if($security->valToken($_POST['CSRFToken'])){
                 if(isset($_POST["login"])){
                    login();
                 } 
@@ -242,16 +244,17 @@
                     updateImg();
                 }
                 echo "aca";
-            } 
-        }else{
+    //        } 
+    //    }else{
             if(isset($_GET["logout"])){
                 logout();
             }
-        }
-        $security->violationSum();
+    //    }
+       // $security->violationSum();
     }else{
-        $_SESSION["message"]="Formulario no validado: <br> Hemos detectado una actividad sospechosa";
-        header("location: ../index.php");
+    //    $_SESSION["message"]="Formulario no validado: <br> Hemos detectado una actividad sospechosa";
+        echo "emmmmm";
+        header("location: ../../index.php");
         exit();
     }
 ?>

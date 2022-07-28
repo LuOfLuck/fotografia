@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 03-06-2022 a las 02:24:56
+-- Tiempo de generación: 28-07-2022 a las 03:33:32
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -39,7 +39,9 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`id`, `titulo`, `descripcion`, `fecha`) VALUES
-(5, 'titulo-1', 'Una descripcion larga pero no tan larga', '2022-05-26');
+(5, 'titulo-1', 'Una descripcion larga pero no tan larga', '2022-05-26'),
+(6, 'asdasdsadsads', 'dsadasdsad\r\n', '2022-06-18'),
+(7, 'album 2', 'dsadasdsad\r\nasdasddsa', '2022-06-18');
 
 -- --------------------------------------------------------
 
@@ -60,19 +62,20 @@ CREATE TABLE `fotos` (
 --
 
 INSERT INTO `fotos` (`id`, `foto`, `descripcion`, `fecha`, `album`) VALUES
-(18, '84Captura de pantalla (16).png', 'Una descripcion larga pero no tan larga', '2022-05-26 03:02:05', 5),
-(19, '415Captura de pantalla (1).png', '', '2022-06-03 02:13:01', 5),
-(20, '480Captura de pantalla (3).png', '', '2022-06-03 02:13:02', 5),
-(21, '407Captura de pantalla (4).png', '', '2022-06-03 02:13:02', 5),
-(22, '763Captura de pantalla (5).png', '', '2022-06-03 02:13:02', 5),
-(23, '125Captura de pantalla (12).png', '', '2022-06-03 02:13:02', 5),
-(24, '322Captura de pantalla (14).png', '', '2022-06-03 02:13:02', 5),
-(25, '35Captura de pantalla (15).png', '', '2022-06-03 02:13:02', 5),
-(26, '111Captura de pantalla (16).png', '', '2022-06-03 02:13:02', 5),
-(27, '781Captura de pantalla (23).png', '', '2022-06-03 02:13:02', 5),
-(28, '29Captura de pantalla (24).png', '', '2022-06-03 02:13:02', 5),
 (29, '525Captura de pantalla (25).png', '', '2022-06-03 02:13:02', 5),
-(30, '81Captura de pantalla (26).png', '', '2022-06-03 02:13:03', 5);
+(30, '81Captura de pantalla (26).png', '', '2022-06-03 02:13:03', 5),
+(31, '427873072.jpg', '', '2022-06-18 06:59:12', 5),
+(32, '3547873662.jpg', '', '2022-06-18 06:59:13', 5),
+(40, '340Captura de pantalla (7).png', '', '2022-06-18 07:01:41', 7),
+(41, '994Captura de pantalla (8).png', '', '2022-06-18 07:01:41', 7),
+(42, '975Captura de pantalla (9).png', '', '2022-06-18 07:01:42', 7),
+(45, '937Captura de pantalla (19).png', '', '2022-06-18 07:01:42', 7),
+(46, '49Captura de pantalla (20).png', '', '2022-06-18 07:01:42', 7),
+(47, '337Captura de pantalla (21).png', '', '2022-06-18 07:01:42', 7),
+(48, '679Captura de pantalla (28).png', '', '2022-06-18 07:01:42', 7),
+(49, '915Captura de pantalla (29).png', '', '2022-06-18 07:01:43', 7),
+(50, '55Captura de pantalla (30).png', '', '2022-06-18 07:01:43', 7),
+(51, '218Captura de pantalla (31).png', '', '2022-06-18 07:01:43', 7);
 
 -- --------------------------------------------------------
 
@@ -126,13 +129,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `album`
 --
 ALTER TABLE `album`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `user`

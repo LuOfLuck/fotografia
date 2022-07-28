@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/galeria.css">
     <script src="https://kit.fontawesome.com/eb1dfef847.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
                                                                 
 </head>
 <body class="<?php if($status){echo 'admin';}?>" > 
@@ -179,11 +181,6 @@
 
         </section>
 
-
-
-
-
-
         <!-- Model pero para probar y preparar -->
         <div id="cont" class="cont">
             <div id="cont__exit" class="cont__exit">
@@ -199,20 +196,21 @@
 
     </main>
 </body>
-
-<script src="js/main.js"></script>
-<script src="js/animation.js"></script>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 <footer class="footer">
         <div class="footer__block footer__media">
                     <a href="https://www.facebook.com/lu.de.luck/" rel="Facebook del autor" class="icon" target="_BLANK"><i class="fab fa-facebook-square footer__icon"></i>
                     <a href="https://www.instagram.com/lugically_cosmic2.2/" rel="instagram del autor" class="icon" target="_BLANK"><i class="fab fa-instagram footer__icon"></i></a>
                     <a href="https://twitter.com/Lu_Of_Luck" rel="Twitter del autor" class="icon" target="_BLANK"> <i class="fab fa-twitter footer__icon"></i></a>    
         </div>
-		<div class="footer__block footer__aviso">
-			<p>lucasGabrielPh © 2022</p>
-		</div>
-	</footer> 
+        <div class="footer__block footer__aviso">
+            <p>lucasGabrielPh © 2022</p>
+        </div>
+</footer> 
+<script src="js/main.js"></script>
+<script src="js/animation.js"></script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<script src="js/ajax.js"></script>
+
 
 
 
