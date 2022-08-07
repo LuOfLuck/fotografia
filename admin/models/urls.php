@@ -99,7 +99,7 @@
             $jsonData["status"] = 401; 
             $jsonData["message"] = "No existen los campos"; 
         }
-        echo $jsonData;
+        echo json_encode($jsonData);
         exit();  
     }
     function updateAlbum(){
@@ -127,7 +127,7 @@
             $jsonData["status"] = 401; 
             $jsonData["message"] = "No existen los campos"; 
         }
-        echo $jsonData;
+        echo json_encode($jsonData);
         exit(); 
     }
     /* TABLA IMG*/

@@ -116,8 +116,9 @@
                         </div>
                     </div>
                     <?php 
-                        }
-                    foreach ($arrayAlbum as &$album) {
+                    }
+                    try{
+                        foreach ($arrayAlbum as &$album) {
                             $arrayFoto = $tableFoto->getForAlbum($album["id"]);       ?>
                             <div 
                                 onmouseover="cambiarImagenes(
@@ -136,9 +137,17 @@
                                     ?>
                                 )" 
                                 class="containerImagen ">
+                                <?php 
+                                    if(isset($arrayFoto[0])){
+                                        $src = $arrayFoto[0]['srcFoto'];
+                                    }else{
+                                        $src = 'nada.png';
+                                    }
+                                ?>
                                 <img id='<?php echo "album-" . $album["id"];?>'  
                                     src="
-                                    admin/models/img/<?php echo $arrayFoto[0]['srcFoto'];?>
+                                    admin/models/img/<?php echo $src;
+                                    ?>
                                     " 
                                     alt="" 
                                     class="carrusel__img elemento"
@@ -153,6 +162,9 @@
                             </div>
                     <?php
                         }
+                    }catch(Exception $e){
+                        echo "";
+                    }
                     ?>
                 </div>
             </div>
@@ -197,11 +209,13 @@
     </main>
 </body>
 <footer class="footer">
+    <!--
         <div class="footer__block footer__media">
                     <a href="https://www.facebook.com/lu.de.luck/" rel="Facebook del autor" class="icon" target="_BLANK"><i class="fab fa-facebook-square footer__icon"></i>
                     <a href="https://www.instagram.com/lugically_cosmic2.2/" rel="instagram del autor" class="icon" target="_BLANK"><i class="fab fa-instagram footer__icon"></i></a>
                     <a href="https://twitter.com/Lu_Of_Luck" rel="Twitter del autor" class="icon" target="_BLANK"> <i class="fab fa-twitter footer__icon"></i></a>    
         </div>
+    -->
         <div class="footer__block footer__aviso">
             <p>lucasGabrielPh © 2022</p>
         </div>

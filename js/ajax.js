@@ -8,13 +8,32 @@ function deleteImg(idImagen, urlImg){
             "deleteImg" : "deleteImg",
         },
         success: function(data){
-            data = JSON.parse(data);
-            console.log(data)
-            console.log(data.status)
+            data = JSON.parse(data
+                );
             if(data.status == 201){
                  const imagen = document.getElementById("imagen-" + idImagen);
                  imagen.style.display = 'none';
-            }else {
+            }else{
+                console.log("nooo")
+            }
+        }
+    });
+}
+
+function deleteAlbum(idAlbum){
+     $.ajax({
+        type: "POST",
+        url: "admin/models/urls.php",
+        data: {
+            "id" : idAlbum,
+            "deleteAlbum" : "deleteAlbum",
+        },
+        success: function(data){
+            data = JSON.parse(data
+                );
+            if(data.status == 201){
+                location.reload();
+            }else{
                 console.log("nooo")
             }
         }

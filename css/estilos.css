@@ -400,11 +400,11 @@ header{
 }
 .carrusel{
     width: 100vw;
-    margin: 100px;
-    padding: 30px 0px;
+    margin: 100px 0px;
+    padding: 30px 20px;
     gap: 100px;
     display: flex;
-    justify-content: center;
+   /* justify-content: center; */
     align-items: center;
     flex-wrap: nowrap;
     overflow-x:scroll;
@@ -523,6 +523,7 @@ header{
     top: 45%;
     z-index: 40;
     user-select: none; 
+    display: none;
 }
 .arrow:hover{
     cursor: pointer;
@@ -567,6 +568,9 @@ header{
 /*                                  */
 /************************************/
 @media screen and (min-width: 768px) {
+    .arrow{
+        display: block;
+    }
     .site-logo{
         display: block;
         margin-left: 50px;
@@ -933,7 +937,7 @@ header{
 .modal_icon{
     width: 70px;
     height: 70px;
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -950,6 +954,9 @@ header{
 .modal_icon:hover{
     outline-offset: 2px;
     background-color: red;
+}
+.admin .modal_icon{
+    display: inline-flex;
 }
 
 /************************************/
@@ -968,7 +975,7 @@ header{
 	flex-direction: row;
 	flex-wrap: wrap;
 	background-color:rgb(0 0 0 / 95%);
-	padding: 10px 20px 50px 20px;
+/*	padding: 10px 20px 50px 20px; */
 }
 .footer__block{
 	color: white;
@@ -981,8 +988,11 @@ header{
 	text-align: center;
 }
 .footer__aviso{
-	width: 40%;
-	text-align: center;
+    margin: 35px;
+	width: 100%;}
+.footer__aviso p{
+    text-align: center;
+    margin: auto;
 }
 .footer__legal{
 	width: 25%;
@@ -1036,4 +1046,3 @@ header{
 /*                 */
 /*                                  */
 /************************************/
-

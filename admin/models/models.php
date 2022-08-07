@@ -81,19 +81,24 @@ class TableAlbum{
 	}
 	function getAll(){
 			//aca la verdad el 0 = ? (num = 0) es para que obtenga todo porque tengo paja de testear
-		    $sth = $this->con->prepare('
-		       SELECT id, titulo, descripcion, fecha FROM album WHERE 0 = ? 
-		    ');
-		    $num = 0;
-		    $sth->bind_param("i",$num);
-		    $sth->execute();
-		    $sth->store_result();
+			try{
+			    $sth = $this->con->prepare('
+			       SELECT id, titulo, descripcion, fecha FROM album WHERE 0 = ? 
+			    ');
+			    $num = 0;
+			    $sth->bind_param("i",$num);
+			    $sth->execute();
+			    $sth->store_result();
 
-			$sth->bind_result($a,$b,$c,$d);
-			while ($sth->fetch()) {
-			     $outArr[] = ['id' => $a, 'titulo' => $b, 'descripcion' => $c, 'fecha' => $d];
+				$sth->bind_result($a,$b,$c,$d);
+				$outArr = [];
+				while ($sth->fetch()) {
+				     $outArr[] = ['id' => $a, 'titulo' => $b, 'descripcion' => $c, 'fecha' => $d];
+				}
+				$sth->close();
+			}catch(Exception $e){
+				$outArr = [];	
 			}
-			$sth->close();
 			return $outArr;
 	}
 		
@@ -108,9 +113,9 @@ class TableFotos{
     function add($foto,$descripcion, $album){
         try{
         	$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
-			$limite_kb = 6384; //6 MB . algo
+			$limite_kb = 100384 * 1024; //10 MB . algo
 		 	if (isset($foto)){
-		  	    if (in_array($foto['type'], $permitidos) && $foto['size'] <= $limite_kb * 1024){
+		  	    if (in_array($foto['type'], $permitidos) && $foto['size'] <= $limite_kb){
 		  	    	$nombreImg = $foto['name'];
 		    		$ruta = $foto['tmp_name'];
 		    		$directorio = "img/";
@@ -171,7 +176,7 @@ class TableFotos{
 		    $sth->store_result();
 
 			$sth->bind_result($a,$b, $c);
-			$outArr = [];
+			$outArr = array();
 			while ($sth->fetch()) {
 			     $outArr[] = ['id' => $a, 'descripcion' => $b, 'srcFoto' => $c];
 			}
