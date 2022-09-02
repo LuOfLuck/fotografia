@@ -52,7 +52,7 @@
             $descripcion = $_POST["descripcion"];
             $tituloLen = strlen($titulo);
             $descripcionLen = strlen($descripcion);
-            if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000)){
+            if(($tituloLen > 0 and $tituloLen < 50) and ($descripcionLen > 0 and $descripcionLen <= 3000)){
                 global $tableAlbum;
              
                 if($res = $tableAlbum->add($titulo, $descripcion)){
@@ -111,7 +111,7 @@
             $id = $_POST["id"];
             $tituloLen = strlen($titulo);
             $descripcionLen = strlen($descripcion);
-            if(($tituloLen > 5 and $tituloLen < 50) and ($descripcionLen >= 8 and $descripcionLen <= 3000)){
+            if(($tituloLen > 0 and $tituloLen < 50) and ($descripcionLen > 0 and $descripcionLen <= 3000)){
                 global $tableAlbum;
                 $res = $tableAlbum->update($titulo, $descripcion, $id);
                 if($res){
